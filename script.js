@@ -1,110 +1,203 @@
-// --- 1. KONFIGURASI (Bagian yang harus kamu ganti) ---
-// Ganti URL di dalam tanda kutip dengan URL Web App kamu
+// =============================================================================
+// 1. KONFIGURASI UTAMA
+// =============================================================================
+// URL Google Apps Script (Jangan diubah jika sudah benar)
 const scriptURL = 'https://script.google.com/macros/s/AKfycbzVWcnpNx-rnzJ2bGWrX1N9R8newsFioY-6QuCX-R11k3Qe9wIjBhRwmVNIlhEjmiAY6g/exec'; 
 
+// Tanggal Acara: Tahun, Bulan (Jan=0, Apr=3), Tanggal, Jam, Menit, Detik
+// Target: 04 April 2026, Jam 08:00
+const tanggalTujuan = new Date(2026, 3, 4, 8, 0, 0).getTime();
+
+
+// =============================================================================
+// 2. FUNGSI UTAMA (Jalan saat website dimuat)
+// =============================================================================
 document.addEventListener("DOMContentLoaded", function() {
-    // Ambil parameter '?to=' dari URL
+    
+    // A. SETUP NAMA TAMU (DARI URL)
+    // -------------------------------------------------------------------------
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('to'); 
     
-    // Jika ada nama tamu di URL (misal: ?to=Budi+Santoso)
     if (namaTamu) {
-        // A. Ganti tulisan "Tamu Undangan" di halaman depan
+        // Ganti nama di cover depan
         const namaContainer = document.getElementById("nama-tamu");
         if (namaContainer) {
             namaContainer.innerText = namaTamu; 
         }
 
-        // B. Otomatis isi kolom nama di form RSVP (biar tamu praktis)
+        // Isi otomatis nama di form RSVP
         const inputNama = document.getElementById("nama");
         if (inputNama) {
             inputNama.value = namaTamu;
         }
     }
-});
 
-// --- 2. LOGIKA MUSIK & COVER ---
-const audio = document.getElementById("song");
-const hero = document.getElementById("hero");
-const mainContent = document.getElementById("main-content");
-const audioContainer = document.getElementById("audio-container");
-const audioBtn = document.getElementById("audio-btn");
-const audioIcon = document.querySelector(".fa-compact-disc");
+    // B. LOAD UCAPAN (Dari Google Sheet)
+    // -------------------------------------------------------------------------
+    loadUcapan();
 
-// GANTI FUNGSI INI SAJA
-function bukaUndangan() {
-    const mainContent = document.getElementById("main-content");
-    const page2 = document.getElementById("page-2");
-    
-    // 1. Munculkan konten halaman 2, 3, 4
-    mainContent.style.display = "block";
-    
-    // 2. Putar Musik
-    audio.play();
-    document.getElementById("audio-container").style.display = "block";
-    
-    // 3. Scroll halus ke Halaman 2
-    page2.scrollIntoView({ behavior: 'smooth' });
-}
+    // C. SETUP TOMBOL MUSIK
+    // -------------------------------------------------------------------------
+    const audioBtn = document.getElementById("audio-btn");
+    const audio = document.getElementById("song");
+    const audioIcon = document.querySelector(".fa-compact-disc");
 
-// Kontrol Tombol Musik (Pause/Play)
-audioBtn.addEventListener("click", function() {
-    if (audio.paused) {
-        audio.play();
-        audioIcon.classList.add("fa-spin"); // Icon muter
-    } else {
-        audio.pause();
-        audioIcon.classList.remove("fa-spin"); // Icon stop
+    if (audioBtn && audio) {
+        audioBtn.addEventListener("click", function() {
+            if (audio.paused) {
+                audio.play();
+                audioIcon.classList.add("fa-spin"); // Icon muter
+            } else {
+                audio.pause();
+                audioIcon.classList.remove("fa-spin"); // Icon berhenti
+            }
+        });
+    }
+
+    // D. SETUP FORM SUBMIT (RSVP)
+    // -------------------------------------------------------------------------
+    const form = document.getElementById('rsvpForm');
+    const btnKirim = document.querySelector("button[type='submit']");
+
+    if (form) {
+        form.addEventListener('submit', e => {
+            e.preventDefault(); 
+            
+            // Ubah tombol jadi loading
+            const textAwal = btnKirim.innerHTML;
+            btnKirim.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+            btnKirim.disabled = true;
+
+            const data = {
+                nama: form.nama.value,
+                jumlah: form.jumlah.value,
+                status: form.status.value,
+                pesan: form.pesan.value
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                alert("Terima kasih! Konfirmasi & Ucapan Anda telah terkirim.");
+                form.reset(); // Kosongkan form
+                
+                // Kembalikan tombol
+                btnKirim.innerHTML = textAwal;
+                btnKirim.disabled = false;
+                
+                // Reload ucapan biar yang baru langsung muncul
+                loadUcapan(); 
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert("Maaf, terjadi kesalahan koneksi. Silakan coba lagi.");
+                btnKirim.innerHTML = textAwal;
+                btnKirim.disabled = false;
+            });
+        });
     }
 });
 
-// --- 3. AMBIL NAMA TAMU DARI URL ---
-// Contoh link: undangan.com/?to=Budi+Santoso
-const urlParams = new URLSearchParams(window.location.search);
-const namaTamu = urlParams.get('to'); // Ambil parameter 'to'
-const namaContainer = document.getElementById("nama-tamu");
 
-if (namaTamu) {
-    // Ganti teks "Tamu Undangan" dengan nama asli
-    namaContainer.innerText = namaTamu; 
+// =============================================================================
+// 3. FUNGSI GLOBAL (Dipanggil lewat onclick di HTML)
+// =============================================================================
+
+// A. BUKA UNDANGAN
+function bukaUndangan() {
+    const hero = document.getElementById("hero");
+    const mainContent = document.getElementById("main-content");
+    const audio = document.getElementById("song");
+    const audioContainer = document.getElementById("audio-container");
+    const page1 = document.getElementById("page-1"); // Target scroll setelah dibuka
+
+    // Geser Cover ke Atas
+    if (hero) {
+        hero.style.transform = "translateY(-100vh)";
+        hero.style.transition = "transform 1s ease-in-out";
+    }
     
-    // Otomatis isi kolom nama di form RSVP juga biar praktis
-    document.getElementById("nama").value = namaTamu;
+    // Munculkan Isi Undangan
+    if (mainContent) {
+        mainContent.style.display = "block";
+        
+        // Scroll halus ke Page 1 (Intro)
+        setTimeout(() => {
+            if(page1) page1.scrollIntoView({ behavior: 'smooth' });
+        }, 500);
+    }
+    
+    // Putar Musik
+    if (audio) {
+        audio.play().catch(error => console.log("Autoplay blocked:", error));
+    }
+    if (audioContainer) {
+        audioContainer.style.display = "block";
+    }
 }
 
-// --- 4. KIRIM DATA RSVP KE GOOGLE SHEETS ---
-// --- 5. KIRIM RSVP & LOAD UCAPAN ---
-const form = document.getElementById('rsvpForm');
-const btnKirim = document.querySelector("button[type='submit']");
-const daftarUcapan = document.getElementById("daftar-ucapan");
+// B. COPY TEXT (ALAMAT/REKENING)
+function copyText(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
 
-// A. Fungsi Load Ucapan dari Google Sheet
+    const textToCopy = element.innerText;
+    
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        alert("Berhasil disalin: " + textToCopy);
+    }, function(err) {
+        console.error('Gagal menyalin: ', err);
+        // Fallback untuk browser lama
+        const textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("Copy");
+        textArea.remove();
+        alert("Berhasil disalin: " + textToCopy);
+    });
+}
+
+
+// =============================================================================
+// 4. FUNGSI PENDUKUNG (HELPER)
+// =============================================================================
+
+// A. LOAD UCAPAN DARI GOOGLE SHEET
 function loadUcapan() {
-    fetch(scriptURL) // Default fetch adalah GET
+    const daftarUcapan = document.getElementById("daftar-ucapan");
+    if (!daftarUcapan) return;
+
+    fetch(scriptURL)
     .then(response => response.json())
     .then(data => {
         if (data.length === 0) {
-            daftarUcapan.innerHTML = '<p class="text-center small text-muted">Belum ada ucapan. Jadilah yang pertama!</p>';
+            daftarUcapan.innerHTML = '<div class="text-center py-5 opacity-75">Belum ada ucapan. Jadilah yang pertama!</div>';
             return;
         }
 
         let html = '';
         data.forEach(item => {
-            // Ambil huruf pertama nama untuk ikon
             const inisial = item.nama.charAt(0).toUpperCase();
             
-            // Tentukan badge status
+            // Badge warna warni sederhana
             let badgeClass = 'bg-secondary';
-            if(item.status === 'Hadir') badgeClass = 'bg-success';
-            if(item.status === 'Tidak Hadir') badgeClass = 'bg-danger';
+            if(item.status === 'Hadir') badgeClass = 'bg-success'; // Hijau bootstrap
+            if(item.status === 'Tidak Hadir') badgeClass = 'bg-danger'; // Merah bootstrap
+            
+            // Style khusus agar badge terlihat bagus di tema Cream/Green
+            const badgeStyle = "font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; color: white;";
 
             html += `
             <div class="ucapan-item animate__animated animate__fadeIn">
-                <div class="ucapan-icon">${inisial}</div>
-                <div class="ucapan-content">
-                    <h5>${item.nama} <span class="badge ${badgeClass}">${item.status}</span></h5>
-                    <p>"${item.pesan}"</p>
+                <div class="d-flex align-items-center mb-2">
+                    <div class="fw-bold text-cream me-2">${item.nama}</div>
+                    <span class="${badgeClass}" style="${badgeStyle}">${item.status}</span>
                 </div>
+                <p class="small text-cream opacity-75 mb-0 fst-italic">"${item.pesan}"</p>
             </div>
             `;
         });
@@ -113,94 +206,41 @@ function loadUcapan() {
     })
     .catch(error => {
         console.error('Error load ucapan:', error);
-        daftarUcapan.innerHTML = '<p class="text-center small text-danger">Gagal memuat ucapan.</p>';
+        daftarUcapan.innerHTML = '<div class="text-center py-5 opacity-75 text-danger">Gagal memuat ucapan.</div>';
     });
 }
 
-// Panggil fungsi load saat halaman dibuka
-document.addEventListener("DOMContentLoaded", loadUcapan);
-
-
-// B. Handle Submit Form
-if (form) {
-    form.addEventListener('submit', e => {
-        e.preventDefault(); 
-        
-        btnKirim.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
-        btnKirim.disabled = true;
-
-        const data = {
-            nama: form.nama.value,
-            jumlah: form.jumlah.value,
-            status: form.status.value,
-            pesan: form.pesan.value
-        };
-
-        fetch(scriptURL, {
-            method: 'POST',
-            body: JSON.stringify(data),
-        })
-        .then(response => {
-            alert("Terima kasih! Konfirmasi & Ucapan Anda telah terkirim.");
-            form.reset(); 
-            btnKirim.innerHTML = 'Kirim Konfirmasi';
-            btnKirim.disabled = false;
-            
-            // Reload ucapan biar yang baru langsung muncul
-            loadUcapan(); 
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            alert("Maaf, terjadi kesalahan. Silakan coba lagi.");
-            btnKirim.innerHTML = 'Kirim Konfirmasi';
-            btnKirim.disabled = false;
-        });
-    });
-}
-
-// --- 5. COUNTDOWN TIMER ---
-// Tanggal target: Tahun, Bulan (0-11), Tanggal, Jam, Menit
-// Ingat: Bulan di JS mulai dari 0 (Januari = 0, Oktober = 9)
-const tanggalTujuan = new Date('Apr 04, 2026 08:00:00').getTime();
-
-const hitungMundur = setInterval(function() {
-    const sekarang = new Date().getTime();
-    const selisih = tanggalTujuan - sekarang;
-
-    // Hitung waktu
-    const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
-    const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
-    const detik = Math.floor((selisih % (1000 * 60)) / 1000);
-
-    // Masukkan ke dalam elemen HTML
-    document.getElementById("days").innerText = formatWaktu(hari);
-    document.getElementById("hours").innerText = formatWaktu(jam);
-    document.getElementById("minutes").innerText = formatWaktu(menit);
-    document.getElementById("seconds").innerText = formatWaktu(detik);
-
-    // Jika waktu habis
-    if (selisih < 0) {
-        clearInterval(hitungMundur);
-        document.getElementById("countdown").innerHTML = "<h3 class='text-cream'>Alhamdulillah, Acara Telah Selesai</h3>";
-    }
-}, 1000);
-
-// Fungsi agar angka satuan jadi 01, 02, dst.
+// B. FORMAT WAKTU (01, 02, dst)
 function formatWaktu(waktu) {
     return waktu < 10 ? "0" + waktu : waktu;
 }
 
-// --- 6. FUNGSI COPY TEXT ---
-function copyText(elementId) {
-    // Ambil teks dari elemen (innerHTML/innerText)
-    var textToCopy = document.getElementById(elementId).innerText;
-    
-    // Gunakan Clipboard API modern
-    navigator.clipboard.writeText(textToCopy).then(function() {
-        // Tampilkan notifikasi sederhana (Alert)
-        alert("Berhasil disalin: " + textToCopy);
-    }, function(err) {
-        console.error('Gagal menyalin: ', err);
-    });
-}
+// C. COUNTDOWN TIMER
+const hitungMundur = setInterval(function() {
+    const sekarang = new Date().getTime();
+    const selisih = tanggalTujuan - sekarang;
+
+    const elHari = document.getElementById("days");
+    const elJam = document.getElementById("hours");
+    const elMenit = document.getElementById("minutes");
+    const elDetik = document.getElementById("seconds");
+    const elCountdown = document.getElementById("countdown");
+
+    // Pastikan elemen ada sebelum diupdate (Mencegah error)
+    if (elHari && elJam && elMenit && elDetik) {
+        const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+        const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+        const detik = Math.floor((selisih % (1000 * 60)) / 1000);
+
+        elHari.innerText = formatWaktu(hari);
+        elJam.innerText = formatWaktu(jam);
+        elMenit.innerText = formatWaktu(menit);
+        elDetik.innerText = formatWaktu(detik);
+    }
+
+    if (selisih < 0 && elCountdown) {
+        clearInterval(hitungMundur);
+        elCountdown.innerHTML = "<h3 class='font-aesthetic text-cream'>Alhamdulillah, Acara Telah Selesai</h3>";
+    }
+}, 1000);
