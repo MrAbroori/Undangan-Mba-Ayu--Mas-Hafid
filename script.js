@@ -2,6 +2,27 @@
 // Ganti URL di dalam tanda kutip dengan URL Web App kamu
 const scriptURL = 'https://script.google.com/macros/s/AKfycbzVWcnpNx-rnzJ2bGWrX1N9R8newsFioY-6QuCX-R11k3Qe9wIjBhRwmVNIlhEjmiAY6g/exec'; 
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Ambil parameter '?to=' dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const namaTamu = urlParams.get('to'); 
+    
+    // Jika ada nama tamu di URL (misal: ?to=Budi+Santoso)
+    if (namaTamu) {
+        // A. Ganti tulisan "Tamu Undangan" di halaman depan
+        const namaContainer = document.getElementById("nama-tamu");
+        if (namaContainer) {
+            namaContainer.innerText = namaTamu; 
+        }
+
+        // B. Otomatis isi kolom nama di form RSVP (biar tamu praktis)
+        const inputNama = document.getElementById("nama");
+        if (inputNama) {
+            inputNama.value = namaTamu;
+        }
+    }
+});
+
 // --- 2. LOGIKA MUSIK & COVER ---
 const audio = document.getElementById("song");
 const hero = document.getElementById("hero");
