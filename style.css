@@ -1,337 +1,170 @@
-/* --- GLOBAL VARIABLES --- */
+/* --- VARIABLES & FONTS --- */
 :root {
-    --cream: #faf3dd;
-    --green: #5b6946;
-    --dark-green: #3e4a30;
+    --cream: #FAF7F0;     /* Cream lebih lembut */
+    --green: #4A563A;     /* Hijau Sage Deep */
+    --gold: #C5A059;      /* Warna emas untuk aksen */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-script: 'Great Vibes', cursive;
 }
 
 body {
-    font-family: 'Work Sans', sans-serif;
-    overflow-x: hidden;
-}
-
-/* --- UTILITIES --- */
-.bg-cream { background-color: var(--cream); }
-.bg-green { background-color: var(--green); }
-.text-cream { color: var(--cream); }
-.text-green { color: var(--green); }
-
-.font-aesthetic {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-}
-
-.font-script {
-    font-family: 'Great Vibes', cursive; /* Font sambung cantik */
-}
-
-.letter-spacing-small {
-    letter-spacing: 3px;
-    font-size: 0.8rem;
-}
-
-/* --- PAGE 1: HERO --- */
-.display-1 {
-    font-size: 4rem; /* Ukuran Nama Besar */
-}
-
-.ampersand {
-    font-family: 'Great Vibes', cursive;
-    font-weight: 400;
-    font-size: 0.7em; /* Sedikit lebih kecil dari nama */
-}
-
-/* Countdown Styles */
-.time-box {
-    background-color: var(--green);
-    color: var(--cream);
-    width: 65px;
-    height: 65px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.time-number {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.time-label {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-}
-
-/* Buttons */
-.btn-outline-green {
-    color: var(--green);
-    border-color: var(--green);
-}
-.btn-outline-green:hover {
-    background-color: var(--green);
-    color: var(--cream);
-}
-
-/* --- PAGE 3: MEMPELAI (ARCH EFFECT) --- */
-.arch-frame {
-    width: 220px;
-    height: 300px;
-    position: relative;
-    border-top-left-radius: 110px; /* Membuat lengkungan atas (setengah lebar) */
-    border-top-right-radius: 110px;
-    overflow: visible; /* Biar tulisan miring bisa keluar dikit */
-    border: 3px solid var(--green); /* Garis bingkai */
-    padding: 5px; /* Jarak bingkai ke foto */
-}
-
-.mempelai-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-top-left-radius: 105px; /* Foto mengikuti bingkai */
-    border-top-right-radius: 105px;
-    filter: sepia(20%); /* Efek warna sedikit vintage */
-}
-
-/* Tulisan Miring "The Bride" */
-.label-miring {
-    position: absolute;
-    bottom: 20px;
-    right: -20px; /* Keluar ke kanan */
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.5rem;
-    color: var(--green);
-    background-color: var(--cream); /* Latar belakang biar teks terbaca */
-    padding: 0 10px;
-    transform: rotate(-10deg); /* Miring ke kiri atas */
-    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
-}
-
-.divider-small {
-    width: 50px;
-    height: 2px;
-    background-color: var(--green);
-    opacity: 1;
-}
-
-/* --- PAGE 4: KARTU ACARA --- */
-.card-acara {
-    max-width: 500px;
-    border: none;
-    border-radius: 20px;
-    background-color: var(--cream); /* Kartu Cream di atas BG Hijau */
-}
-
-/* --- RESPONSIVE ADJUSTMENTS --- */
-@media (max-width: 400px) {
-    .display-1 { font-size: 3rem; }
-    .arch-frame { width: 180px; height: 250px; border-top-left-radius: 90px; border-top-right-radius: 90px;}
-    .mempelai-img { border-top-left-radius: 85px; border-top-right-radius: 85px; }
-    .label-miring { font-size: 2rem; right: -10px; }
-}
-
-/* Floating Music */
-#audio-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-}
-#audio-container button {
-    width: 50px; height: 50px; color: var(--green);
-}
-
-/* --- PAGE 5 & 6: GIFT & CLOSING --- */
-.btn-custom-green {
-    background-color: var(--green);
-    color: var(--cream);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    transition: all 0.3s;
-}
-.btn-custom-green:hover {
-    background-color: var(--dark-green);
-    color: white;
-}
-
-/* --- STYLING KARTU KREDIT (GIFT CARD) --- */
-.credit-card {
-    position: relative;
-    width: 100%;
-    height: 220px; /* Ukuran Kartu */
-    border-radius: 15px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #5b6946 0%, #3e4a30 100%); /* Warna Dasar Hijau */
-    margin-bottom: 20px;
-}
-
-/* Pola / Tekstur Kartu (Lingkaran Transparan) */
-.card-bg-texture {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 25%),
-                      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 30%);
-    z-index: 1;
-}
-/* Menambah efek noise/bintik halus */
-.credit-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
-    z-index: 1;
-}
-
-.card-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card-logo-top-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 30px; /* Ukuran Logo SPay */
-    background: white; /* Kotak putih kecil di belakang logo biar jelas */
-    padding: 2px 5px;
-    border-bottom-left-radius: 10px;
-}
-
-.address-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 8px;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    line-height: 1.2;
-}
-
-.text-truncate-multiline {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.letter-spacing-2 {
-    letter-spacing: 2px;
-}
-
-/* Responsif modal agar tidak terlalu lebar di HP */
-.modal-dialog {
-    max-width: 400px; 
-    margin: 1.75rem auto;
-}
-
-/* --- UPDATE CSS: ANIMASI MODAL & INISIAL --- */
-
-/* 1. ANIMASI POP-UP "GELOSOR" TURUN */
-.modal.fade .modal-dialog {
-    /* Posisi awal: Jauh di atas layar */
-    transform: translateY(-100vh); 
-    /* Durasi: 0.8 detik biar terasa 'gelosor' halus */
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
-}
-
-.modal.show .modal-dialog {
-    /* Posisi akhir: Normal di tengah */
-    transform: translateY(0);
-}
-
-/* 2. INISIAL SALING TIMPA (OVERLAP) */
-/* Kita hapus gap bawaan, dan pakai margin negatif */
-.inisial-box {
-    position: relative;
-    height: 120px; /* Menjaga tinggi agar tidak gepeng */
-}
-
-.inisial-huruf {
-    font-size: 8rem; /* Lebih besar lagi biar mantap */
-    line-height: 0.8;
-    z-index: 1; /* Di belakang bunga */
-    position: relative;
-}
-
-.bunga-tengah {
-    width: 110px; /* Bunga diperbesar */
-    margin-left: -40px; /* Tarik A ke arah bunga */
-    margin-right: -40px; /* Tarik H ke arah bunga */
-    z-index: 2; /* Bunga di depan huruf */
-    position: relative;
-    transform: rotate(15deg);
-    /* Sedikit bayangan putih biar tidak tabrakan warnanya */
-    filter: drop-shadow(0px 0px 5px var(--cream)); 
-}
-
-/* Agar tombol Gift & WA lebarnya sama saat Atas-Bawah */
-.btn-block-custom {
-    width: 100%; /* Lebar penuh */
-    max-width: 300px; /* Tapi jangan kelebaran */
-    margin: 5px 0; /* Jarak antar tombol */
-}
-
-/* --- RSVP & UCAPAN --- */
-.ucapan-container {
-    height: 400px; /* Tinggi kotak */
-    overflow-y: auto; /* Agar bisa di-scroll */
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 20px;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-/* Style Scrollbar biar tipis */
-.ucapan-container::-webkit-scrollbar { width: 5px; }
-.ucapan-container::-webkit-scrollbar-thumb { background-color: var(--green); border-radius: 10px; }
-
-/* Item Ucapan Individual */
-.ucapan-item {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    display: flex;
-    gap: 15px;
-}
-
-.ucapan-icon {
-    width: 40px;
-    height: 40px;
+    font-family: var(--font-body);
     background-color: var(--cream);
     color: var(--green);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    flex-shrink: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-.ucapan-content h5 {
-    font-size: 0.95rem;
-    font-weight: bold;
-    margin-bottom: 2px;
-    color: var(--dark-green);
+/* --- TYPOGRAPHY --- */
+.font-aesthetic { font-family: var(--font-heading); font-weight: 600; letter-spacing: -0.5px; }
+.text-green { color: var(--green); }
+.text-cream { color: var(--cream); }
+.bg-cream { background-color: var(--cream); }
+.bg-green { background-color: var(--green); }
+.letter-spacing-small { letter-spacing: 3px; font-size: 0.75rem; }
+
+/* --- ORNAMENTS (BUNGA) --- */
+.ornamen-pojok-kiri-atas { position: absolute; top: 0; left: 0; width: 150px; opacity: 0.8; }
+.ornamen-pojok-kanan-atas { position: absolute; top: 0; right: 0; width: 150px; transform: scaleX(-1); opacity: 0.8; }
+.ornamen-sisi-kiri { position: absolute; top: 50%; left: -50px; width: 120px; transform: translateY(-50%); opacity: 0.6; }
+.ornamen-sisi-kanan { position: absolute; top: 50%; right: -50px; width: 120px; transform: translateY(-50%); opacity: 0.6; }
+.ornamen-pojok-kiri-bawah { position: absolute; bottom: 0; left: 0; width: 120px; }
+.ornamen-pojok-kanan-bawah { position: absolute; bottom: 0; right: 0; width: 120px; transform: scaleX(-1); }
+
+@media (max-width: 576px) {
+    .ornamen-pojok-kiri-atas, .ornamen-pojok-kanan-atas { width: 100px; }
 }
 
-.ucapan-content .badge {
-    font-size: 0.7rem;
-    font-weight: normal;
-    background-color: var(--green);
-    margin-left: 5px;
+/* --- HERO SECTION --- */
+.hero-container {
+    height: 100vh;
+    background-color: var(--cream);
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden;
+}
+.hero-content { flex-grow: 1; z-index: 2; }
+
+/* Inisial Overlap */
+.inisial-box { position: relative; height: 140px; }
+.inisial-huruf {
+    font-family: var(--font-heading);
+    font-size: 8rem; line-height: 0.8;
+    color: var(--green); z-index: 1;
+}
+.bunga-tengah {
+    width: 130px; margin: 0 -45px; z-index: 2;
+    filter: drop-shadow(0 0 10px var(--cream));
 }
 
-.ucapan-content p {
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 0;
-    line-height: 1.4;
-    font-style: italic;
+.nama-lengkap-hero {
+    font-family: var(--font-heading); font-size: 2rem;
+    font-style: italic; color: var(--green);
 }
+.tanggal-hero {
+    border-top: 1px solid var(--green); border-bottom: 1px solid var(--green);
+    padding: 5px 20px; font-size: 0.9rem; letter-spacing: 1px;
+}
+
+/* Hero Bottom Glass Effect */
+.hero-bottom { width: 100%; z-index: 2; }
+.content-box.glass-effect {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 20px 20px 0 0;
+    width: 100%; max-width: 500px;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+}
+
+/* --- BUTTONS --- */
+.btn-custom-cream {
+    background-color: var(--green); color: var(--cream);
+    border: none; padding: 12px 30px; border-radius: 50px;
+    font-family: var(--font-body); font-weight: 500; letter-spacing: 1px;
+    transition: all 0.3s;
+}
+.btn-custom-cream:hover { background-color: var(--dark-green); transform: translateY(-2px); color: white; }
+
+.btn-outline-green {
+    color: var(--green); border: 1px solid var(--green);
+    padding: 8px 20px; border-radius: 50px;
+}
+.btn-outline-green:hover { background-color: var(--green); color: white; }
+
+/* --- PAGE ELEMENTS --- */
+.display-2 { font-size: 3.5rem; }
+.ampersand { font-family: var(--font-script); color: var(--gold); font-size: 0.7em; }
+.date-badge {
+    background: var(--green); color: var(--cream);
+    padding: 8px 25px; border-radius: 50px; font-size: 0.9rem;
+}
+
+/* Countdown Minimalis */
+.time-box {
+    display: flex; flex-direction: column; align-items: center;
+    min-width: 60px;
+}
+.time-number { font-family: var(--font-heading); font-size: 2.5rem; line-height: 1; font-weight: 600; }
+.time-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Quote Divider */
+.divider-cream { width: 60px; height: 3px; background-color: var(--cream); }
+
+/* --- MEMPELAI (ARCH) --- */
+.mempelai-card { position: relative; z-index: 2; }
+.arch-frame {
+    width: 200px; height: 260px;
+    border-radius: 100px 100px 20px 20px; /* Bentuk Kubah */
+    overflow: hidden; border: 4px solid var(--green); padding: 5px;
+}
+.mempelai-img {
+    width: 100%; height: 100%; object-fit: cover;
+    border-radius: 95px 95px 15px 15px; filter: sepia(15%);
+}
+.label-role {
+    font-family: var(--font-script); font-size: 1.8rem;
+    color: var(--gold); margin-top: -10px;
+}
+.ampersand-big { font-family: var(--font-script); font-size: 4rem; color: var(--green); opacity: 0.3; }
+
+/* --- ACARA CARDS --- */
+.card-acara {
+    background: #fff; border-radius: 15px; padding: 30px;
+    position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+.card-acara:hover { transform: translateY(-5px); }
+.card-header-ornament { margin-bottom: 15px; opacity: 0.8; }
+.detail-acara p { margin-bottom: 5px; font-weight: 500; }
+
+/* --- GIFT & MODAL --- */
+.btn-block-custom { width: 100%; max-width: 280px; }
+.modal-content { border-radius: 20px; overflow: hidden; }
+.credit-card {
+    height: 180px; border-radius: 15px; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #4A563A 0%, #2e3624 100%);
+    display: flex; flex-direction: column; padding: 20px;
+}
+.card-bg-texture {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1h2v2H1V1zm4 0h2v2H5V1zm4 0h2v2H9V1z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* --- RSVP GLASS FORM --- */
+.glass-form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2);
+}
+.custom-input {
+    background: rgba(255, 255, 255, 0.8); border: none; padding: 12px;
+}
+.ucapan-container-glass {
+    height: 350px; overflow-y: auto;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px; padding: 15px; color: var(--cream);
+}
+.ucapan-item { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; margin-bottom: 10px; }
+
+/* ANIMATION */
+.modal.fade .modal-dialog { transform: translateY(-100vh); transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+.modal.show .modal-dialog { transform: translateY(0); }

@@ -7,7 +7,7 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -18,41 +18,38 @@
     <audio id="song" loop>
         <source src="assets/audio.mp3" type="audio/mp3">
     </audio>
-
     <div id="audio-container" style="display: none;">
         <button id="audio-btn" class="btn btn-light rounded-circle shadow">
             <i class="fas fa-compact-disc fa-spin"></i>
         </button>
     </div>
 
-
     <section id="hero" class="hero-container">
-        
-        <div class="hero-top d-flex flex-column justify-content-center align-items-center text-center">
-            <p class="text-tracking-top mb-4">THE WEDDING OF</p>
+        <img src="assets/bunga-02.svg" class="ornamen-pojok-kiri-atas" alt="ornamen">
+        <img src="assets/bunga-03.svg" class="ornamen-pojok-kanan-atas" alt="ornamen">
+
+        <div class="hero-content d-flex flex-column justify-content-center align-items-center text-center">
+            <p class="text-tracking-top mb-3 animate-up">THE WEDDING OF</p>
             
-            <div class="inisial-box d-flex align-items-center mt-2">
+            <div class="inisial-box d-flex align-items-center mt-2 animate-zoom">
                 <span class="inisial-huruf">A</span>
-                <img src="assets/bunga-01.png" alt="Flower Decoration" class="bunga-tengah">
+                <img src="assets/bunga-01.svg" alt="Flower" class="bunga-tengah">
                 <span class="inisial-huruf">H</span>
             </div>
 
-            <div class="nama-lengkap-hero mt-5">Ayu & Hafidz</div>
-            <p class="tanggal-hero mt-2">Sabtu, 04 April 2026</p>
+            <div class="nama-lengkap-hero mt-4 animate-up delay-1">Ayu & Hafidz</div>
+            <p class="tanggal-hero mt-3 animate-up delay-2">Sabtu, 04 April 2026</p>
         </div>
 
-        <div class="hero-bottom d-flex flex-column justify-content-center align-items-center text-center p-4">
-            <div class="content-box">
+        <div class="hero-bottom d-flex flex-column justify-content-end align-items-center text-center pb-5">
+            <div class="content-box glass-effect p-4">
                 <p class="salam-pembuka mb-2">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                
                 <div class="tamu-wrapper mb-3">
                     <h2 id="nama-tamu" class="nama-tamu">Tamu Undangan</h2>
                 </div>
-
-                <p class="kalimat-undangan mb-4 small text-light opacity-75">
+                <p class="kalimat-undangan mb-4 small">
                     Tanpa mengurangi rasa hormat, kami bermaksud mengundang Anda untuk hadir di acara pernikahan kami.
                 </p>
-                
                 <button type="button" class="btn btn-custom-cream btn-lg shadow-sm" onclick="bukaUndangan()">
                     <i class="fas fa-envelope-open me-2"></i> Buka Undangan
                 </button>
@@ -63,143 +60,137 @@
 
     <div id="main-content" style="display: none;">
 
-        <section id="page-1" class="bg-cream text-green min-vh-100 d-flex flex-column justify-content-center align-items-center text-center p-3">
+        <section id="page-1" class="bg-cream text-green min-vh-100 d-flex flex-column justify-content-center align-items-center text-center p-4 position-relative overflow-hidden">
+            <img src="assets/bunga-04.svg" class="ornamen-sisi-kiri" alt="ornamen">
+            <img src="assets/bunga-05.svg" class="ornamen-sisi-kanan" alt="ornamen">
+
             <p class="letter-spacing-small text-uppercase mb-2">The Wedding of</p>
-            <h1 class="font-aesthetic display-1 mb-3">Ayu <span class="ampersand">&</span> Hafid</h1>
+            <h1 class="font-aesthetic display-2 mb-3">Ayu <span class="ampersand">&</span> Hafid</h1>
             
-            <p class="mb-4 fst-italic px-3" style="max-width: 600px;">
+            <p class="mb-4 fst-italic px-3 quote-text">
                 "Kami Berharap anda menjadi bagian dari hari istimewa kami"
             </p>
 
-            <div class="border-top border-bottom border-success py-2 px-4 mb-5">
-                <h5 class="mb-0 fw-bold">Sabtu, 04 April 2026</h5>
+            <div class="date-badge mb-5">
+                <span class="fw-bold">Sabtu, 04 April 2026</span>
             </div>
 
-            <div id="countdown" class="d-flex justify-content-center gap-2 flex-wrap">
-                <div class="time-box shadow-sm">
+            <div id="countdown" class="d-flex justify-content-center gap-3 flex-wrap">
+                <div class="time-box">
                     <span id="days" class="time-number">00</span><span class="time-label">Hari</span>
                 </div>
-                <div class="time-box shadow-sm">
+                <div class="time-box">
                     <span id="hours" class="time-number">00</span><span class="time-label">Jam</span>
                 </div>
-                <div class="time-box shadow-sm">
+                <div class="time-box">
                     <span id="minutes" class="time-number">00</span><span class="time-label">Menit</span>
                 </div>
-                <div class="time-box shadow-sm">
+                <div class="time-box">
                     <span id="seconds" class="time-number">00</span><span class="time-label">Detik</span>
                 </div>
             </div>
         </section>
 
 
-        <section id="page-2" class="bg-green text-cream py-5 text-center d-flex align-items-center min-vh-50">
-            <div class="container">
-                <img src="assets/bunga-08.svg" alt="Decoration" class="mb-3" width="80">
+        <section id="page-2" class="bg-green text-cream py-5 text-center d-flex align-items-center position-relative">
+            <div class="container position-relative z-2">
+                <img src="assets/bunga-08.svg" alt="Decoration" class="mb-4 rotating-flower" width="60">
                 
                 <h2 class="font-aesthetic mb-4">Our Special Day</h2>
                 
-                <blockquote class="blockquote px-3">
-                    <p class="mb-4 fs-6 fw-light lh-lg">
+                <div class="quote-box">
+                    <p class="mb-4 fs-6 fw-light lh-lg fst-italic">
                         “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”
                     </p>
-                    <footer class="blockquote-footer text-cream opacity-75 mt-3">QS. Ar-Rum: 21</footer>
-                </blockquote>
+                    <div class="divider-cream mx-auto mb-3"></div>
+                    <footer class="text-uppercase letter-spacing-2 small">QS. Ar-Rum: 21</footer>
+                </div>
             </div>
         </section>
 
 
-        <section id="page-3" class="bg-cream text-green py-5 text-center">
+        <section id="page-3" class="bg-cream text-green py-5 text-center position-relative">
+            <img src="assets/bunga-06.svg" class="ornamen-pojok-kiri-bawah" alt="ornamen">
+            <img src="assets/bunga-07.svg" class="ornamen-pojok-kanan-bawah" alt="ornamen">
+
             <div class="container">
-                
-                <div class="mempelai-wrapper mb-5">
-                    <div class="arch-frame mx-auto mb-3 position-relative">
-                        <img src="assets/ayu-001.png" alt="Ayu Arista Sabilla" class="mempelai-img">
-                        <div class="label-miring">The Bride</div>
+                <div class="row justify-content-center align-items-center">
+                    
+                    <div class="col-md-5 mb-5 mb-md-0">
+                        <div class="mempelai-card">
+                            <div class="arch-frame mx-auto mb-4">
+                                <img src="assets/ayu-001.png" alt="Ayu" class="mempelai-img">
+                            </div>
+                            <h2 class="font-aesthetic fs-2">Ayu Arista Sabilla</h2>
+                            <p class="label-role">The Bride</p>
+                            <p class="small mb-1 mt-3">Putri Pertama dari</p>
+                            <p class="fw-bold mb-3">Bapak H. Hardjito Abdul Faqih <br>& Ibu Yuliatul Hikmah</p>
+                            <a href="https://instagram.com/ayuarsabil" target="_blank" class="btn btn-sm btn-outline-green rounded-pill px-4">
+                                <i class="fab fa-instagram me-1"></i> @ayuarsabil
+                            </a>
+                        </div>
                     </div>
-                    
-                    <h2 class="font-aesthetic">Ayu Arista Sabilla</h2>
-                    <hr class="divider-small mx-auto my-3">
-                    
-                    <p class="small mb-1">Putri Pertama dari</p>
-                    <p class="fw-bold mb-3">Bapak H. Hardjito Abdul Faqih <br>& Ibu Yuliatul Hikmah</p>
-                    
-                    <a href="https://instagram.com/ayuarsabil" target="_blank" class="btn btn-sm btn-outline-green rounded-pill">
-                        <i class="fab fa-instagram me-1"></i> @ayuarsabil
-                    </a>
-                </div>
 
-                <div class="fs-1 font-aesthetic my-5">&</div>
-
-                <div class="mempelai-wrapper">
-                    <div class="arch-frame mx-auto mb-3 position-relative">
-                        <img src="assets/hafid-001.png" alt="Hafidzulloh" class="mempelai-img">
-                        <div class="label-miring">The Groom</div>
+                    <div class="col-md-2 my-4">
+                        <div class="ampersand-big">&</div>
                     </div>
-                    
-                    <h2 class="font-aesthetic">Hafidzulloh, S.T.</h2>
-                    <hr class="divider-small mx-auto my-3">
-                    
-                    <p class="small mb-1">Putra Ketiga dari</p>
-                    <p class="fw-bold mb-3">Bapak Kosasih <br>& Ibu Tuti Sutarti</p>
-                    
-                    <a href="https://instagram.com/hafid.zulloh" target="_blank" class="btn btn-sm btn-outline-green rounded-pill">
-                        <i class="fab fa-instagram me-1"></i> @hafid.zulloh
-                    </a>
-                </div>
 
+                    <div class="col-md-5">
+                        <div class="mempelai-card">
+                            <div class="arch-frame mx-auto mb-4">
+                                <img src="assets/hafid-001.png" alt="Hafid" class="mempelai-img">
+                            </div>
+                            <h2 class="font-aesthetic fs-2">Hafidzulloh, S.T.</h2>
+                            <p class="label-role">The Groom</p>
+                            <p class="small mb-1 mt-3">Putra Ketiga dari</p>
+                            <p class="fw-bold mb-3">Bapak Kosasih <br>& Ibu Tuti Sutarti</p>
+                            <a href="https://instagram.com/hafid.zulloh" target="_blank" class="btn btn-sm btn-outline-green rounded-pill px-4">
+                                <i class="fab fa-instagram me-1"></i> @hafid.zulloh
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
 
-        <section id="page-4" class="bg-green text-cream py-5 text-center">
+        <section id="page-4" class="bg-green text-cream py-5 text-center position-relative">
             <div class="container">
-                <h2 class="font-aesthetic mb-5">Save The Date</h2>
+                <h2 class="font-aesthetic mb-5 display-4">Save The Date</h2>
 
-                <div class="card card-acara mx-auto mb-4 shadow text-green">
-                    <div class="card-body p-4">
-                        <h3 class="font-aesthetic mb-3">Akad Nikah</h3>
-                        
-                        <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
-                            <i class="far fa-calendar-check"></i>
-                            <span class="fw-bold">Sabtu, 04 April 2026</span>
+                <div class="row justify-content-center gap-4">
+                    <div class="col-md-5">
+                        <div class="card-acara shadow-lg">
+                            <div class="card-header-ornament">
+                                <img src="assets/bunga-08.svg" width="40" alt="icon">
+                            </div>
+                            <h3 class="font-aesthetic mb-3">Akad Nikah</h3>
+                            <div class="detail-acara">
+                                <p><i class="far fa-calendar me-2"></i> Sabtu, 04 April 2026</p>
+                                <p><i class="far fa-clock me-2"></i> 08.00 - 09.00 WIB</p>
+                            </div>
+                            <p class="small text-muted mt-3 px-3">
+                                Jl. Raya Jatinangor No.44, RT.03/RW.11, Sayang, Kec. Jatinangor, Sumedang
+                            </p>
+                            <a href="#" class="btn btn-outline-green btn-sm mt-2">Lihat Lokasi</a>
                         </div>
-                        
-                        <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
-                            <i class="far fa-clock"></i>
-                            <span>08.00 - 09.00 WIB</span>
-                        </div>
-                        
-                        <p class="small mb-3 px-3 text-muted">
-                            Jl. Raya Jatinangor No.44, RT.03/RW.11, Sayang, Kec. Jatinangor, Kabupaten Sumedang, Jawa Barat 45363
-                        </p>
-                        
-                        <a href="https://goo.gl/maps/CONTOH" target="_blank" class="btn btn-outline-green btn-sm">
-                            <i class="fas fa-map-marked-alt me-1"></i> Lihat Lokasi
-                        </a>
                     </div>
-                </div>
 
-                <div class="card card-acara mx-auto shadow text-green">
-                    <div class="card-body p-4">
-                        <h3 class="font-aesthetic mb-3">Resepsi</h3>
-                        
-                        <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
-                            <i class="far fa-calendar-check"></i>
-                            <span class="fw-bold">Sabtu, 04 April 2026</span>
+                    <div class="col-md-5">
+                        <div class="card-acara shadow-lg">
+                            <div class="card-header-ornament">
+                                <img src="assets/bunga-01.svg" width="40" alt="icon">
+                            </div>
+                            <h3 class="font-aesthetic mb-3">Resepsi</h3>
+                            <div class="detail-acara">
+                                <p><i class="far fa-calendar me-2"></i> Sabtu, 04 April 2026</p>
+                                <p><i class="far fa-clock me-2"></i> 10.00 - 14.00 WIB</p>
+                            </div>
+                            <p class="small text-muted mt-3 px-3">
+                                Jl. Raya Jatinangor No.44, RT.03/RW.11, Sayang, Kec. Jatinangor, Sumedang
+                            </p>
+                            <a href="#" class="btn btn-outline-green btn-sm mt-2">Lihat Lokasi</a>
                         </div>
-                        
-                        <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
-                            <i class="far fa-clock"></i>
-                            <span>10.00 - 14.00 WIB</span>
-                        </div>
-                        
-                        <p class="small mb-3 px-3 text-muted">
-                            Jl. Raya Jatinangor No.44, RT.03/RW.11, Sayang, Kec. Jatinangor, Kabupaten Sumedang, Jawa Barat 45363
-                        </p>
-                        
-                        <a href="https://goo.gl/maps/CONTOH" target="_blank" class="btn btn-outline-green btn-sm">
-                            <i class="fas fa-map-marked-alt me-1"></i> Lihat Lokasi
-                        </a>
                     </div>
                 </div>
             </div>
@@ -208,130 +199,108 @@
 
         <section id="wedding-gift" class="bg-cream text-green py-5 text-center">
             <div class="container">
+                <img src="assets/bunga-02.svg" width="60" class="mb-3 opacity-50" alt="flower">
                 <h2 class="font-aesthetic mb-3">Wedding Gift</h2>
-                <p class="mb-4 px-3" style="max-width: 600px; margin: 0 auto;">
+                <p class="mb-4 px-3 text-muted" style="max-width: 600px; margin: 0 auto;">
                     Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.
                 </p>
 
-                <div class="d-flex flex-column align-items-center justify-content-center mt-4">
-                    
+                <div class="d-flex flex-column align-items-center justify-content-center mt-4 gap-3">
                     <button type="button" class="btn btn-custom-green shadow btn-block-custom" data-bs-toggle="modal" data-bs-target="#giftModal">
                         <i class="fas fa-gift me-2"></i> Lihat Info Pengiriman
                     </button>
-
-                    <a href="https://wa.me/6282121275164?text=Halo%20Kak,%20saya%20sudah%20mengirimkan%20hadiah." target="_blank" class="btn btn-outline-green shadow btn-block-custom">
+                    <a href="https://wa.me/6282121275164" target="_blank" class="btn btn-outline-green shadow btn-block-custom">
                         <i class="fab fa-whatsapp me-2"></i> WhatsApp Konfirmasi
                     </a>
-
                 </div>
             </div>
         </section>
 
-        <section id="rsvp" class="bg-cream text-green py-5">
-            <div class="container">
-                <h2 class="font-aesthetic text-center mb-4">Konfirmasi Kehadiran</h2>
-                <p class="text-center px-3 mb-5">
-                    Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir memberikan doa restu.
-                </p>
 
-                <div class="row justify-content-center">
-                    <div class="col-md-6 mb-5">
-                        <div class="card shadow-sm border-0 bg-white p-4" style="border-radius: 20px;">
+        <section id="rsvp" class="bg-green text-cream py-5 position-relative">
+            <img src="assets/bunga-04.svg" class="ornamen-sisi-kanan opacity-25" alt="ornamen">
+            
+            <div class="container position-relative z-2">
+                <h2 class="font-aesthetic text-center mb-5">Konfirmasi Kehadiran</h2>
+
+                <div class="row justify-content-center g-4">
+                    <div class="col-md-5">
+                        <div class="glass-form p-4 rounded-4">
                             <form id="rsvpForm">
                                 <div class="mb-3">
-                                    <label class="form-label fw-bold small">Nama Lengkap</label>
-                                    <input type="text" class="form-control shadow-none" id="nama" name="nama" placeholder="Isi nama Anda" required>
+                                    <input type="text" class="form-control custom-input" id="nama" name="nama" placeholder="Nama Lengkap" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label fw-bold small">Jumlah Tamu</label>
-                                    <input type="number" class="form-control shadow-none" id="jumlah" name="jumlah" placeholder="1" min="1" max="5">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label fw-bold small">Status Kehadiran</label>
-                                    <select class="form-select shadow-none" id="status" name="status" required>
+                                    <select class="form-select custom-input" id="status" name="status">
                                         <option value="Hadir">Hadir</option>
-                                        <option value="Tidak Hadir">Tidak Hadir</option>
-                                        <option value="Masih Ragu">Masih Ragu</option>
+                                        <option value="Tidak Hadir">Maaf, Tidak Hadir</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label fw-bold small">Ucapan & Doa</label>
-                                    <textarea class="form-control shadow-none" id="pesan" name="pesan" rows="3" placeholder="Tulis ucapan selamat..."></textarea>
+                                    <textarea class="form-control custom-input" id="pesan" name="pesan" rows="3" placeholder="Ucapan & Doa"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-custom-green w-100 mt-2">Kirim Konfirmasi</button>
+                                <button type="submit" class="btn btn-light text-green w-100 fw-bold">Kirim</button>
                             </form>
                         </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <h4 class="font-aesthetic text-center mb-3">Ucapan & Doa</h4>
-                        <div id="daftar-ucapan" class="ucapan-container shadow-inner">
-                            <div class="text-center py-5 text-muted">
-                                <i class="fas fa-spinner fa-spin"></i> Memuat ucapan...
-                            </div>
+                    
+                    <div class="col-md-5">
+                        <div id="daftar-ucapan" class="ucapan-container-glass">
+                            <div class="text-center py-5 opacity-75"><i class="fas fa-spinner fa-spin"></i> Memuat doa...</div>
                         </div>
                     </div>
                 </div>
+
+                <div class="text-center mt-5 pt-5 border-top border-white border-opacity-25">
+                    <p class="fst-italic opacity-75 mb-4 px-3">
+                        "Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i, kami ucapkan terima kasih."
+                    </p>
+                    <h2 class="font-aesthetic display-5">Ayu & Hafid</h2>
+                </div>
             </div>
         </section>
 
-        <section id="closing" class="bg-green text-cream py-5 text-center">
-            <div class="container">
-                <img src="assets/bunga-08.svg" alt="Flower" width="60" class="mb-3 opacity-75">
-                <p class="px-4 fst-italic lh-lg" style="max-width: 700px; margin: 0 auto;">
-                    "Merupakan Suatu Kehormatan dan Kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu. Atas Kehadiran dan doa restunya, kami mengucapkan terima kasih."
-                </p>
-                <h2 class="font-aesthetic mt-5 display-5">Ayu & Hafid</h2>
-            </div>
-        </section>
+    </div>
 
-    </div> <div class="modal fade" id="giftModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="giftModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-cream">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title font-aesthetic text-green">Wedding Gift</h5>
+                <div class="modal-header border-0 pb-0">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body pt-0 px-4 pb-4">
+                    <h5 class="font-aesthetic text-green text-center mb-4 fs-3">Wedding Gift</h5>
                     
                     <div class="credit-card mb-3 shadow">
-                        <div class="card-bg-texture"></div> <div class="card-content text-white">
-                            <div class="text-center mb-2">
-                                <i class="fas fa-gift fa-2x"></i>
-                                <p class="small fw-bold mt-1">Kirim Kado Fisik</p>
+                        <div class="card-bg-texture"></div>
+                        <div class="card-content text-white">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <i class="fas fa-home fa-lg opacity-50"></i>
+                                <span class="small border border-white px-2 rounded-pill">Alamat</span>
                             </div>
-                            
-                            <h5 class="font-aesthetic mb-1">Ayu Arista Sabillaa</h5>
-                            <p class="small mb-2 opacity-75">+6282-2127-5164</p>
-                            
-                            <div class="address-box">
-                                <p class="small mb-0 text-truncate-multiline" id="textAlamat">Jl. Caringin, No. 47, RT 01/RW 13, Ds. Sayang, Kec. Jatinangor, Kab.Sumedang, Prov. Jawa Barat 45363</p>
+                            <div class="mt-auto">
+                                <h5 class="font-aesthetic mb-1">Ayu Arista Sabillaa</h5>
+                                <p class="small opacity-75 mb-2">+6282-2127-5164</p>
+                                <p class="small mb-0 text-truncate-multiline" id="textAlamat">Jl. Caringin, No. 47, RT 01/RW 13, Ds. Sayang, Kec. Jatinangor, Sumedang</p>
                             </div>
-                            
-                            <button class="btn btn-light btn-sm mt-3 w-100 fw-bold text-green" onclick="copyText('textAlamat')">
-                                <i class="far fa-copy me-1"></i> Salin Alamat
-                            </button>
+                            <button class="btn btn-light btn-sm mt-3 w-100 fw-bold text-green" onclick="copyText('textAlamat')"><i class="far fa-copy"></i> Salin Alamat</button>
                         </div>
                     </div>
 
                     <div class="credit-card shadow">
                         <div class="card-bg-texture"></div>
-                        <div class="card-content text-white position-relative">
-                            <img src="assets/spay.svg" alt="ShopeePay" class="card-logo-top-right">
-                            
-                            <div class="mt-4">
-                                <p class="small mb-0 opacity-75">ShopeePay</p>
-                                <h5 class="font-aesthetic mb-3">Ayu Arista Sabillaa</h5>
-                                
-                                <h3 class="fw-bold letter-spacing-2" id="textSpay">0821-2127-5164</h3>
+                        <div class="card-content text-white">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <span class="small opacity-50">E-Wallet</span>
+                                <img src="assets/spay.svg" height="20" class="bg-white p-1 rounded">
                             </div>
-
-                            <button class="btn btn-light btn-sm mt-3 w-100 fw-bold text-green" onclick="copyText('textSpay')">
-                                <i class="far fa-copy me-1"></i> Salin Nomor
-                            </button>
+                            <div class="mt-auto">
+                                <h5 class="font-aesthetic mb-1">Ayu Arista Sabillaa</h5>
+                                <h3 class="fw-bold letter-spacing-2 mb-0" id="textSpay">0821-2127-5164</h3>
+                            </div>
+                            <button class="btn btn-light btn-sm mt-3 w-100 fw-bold text-green" onclick="copyText('textSpay')"><i class="far fa-copy"></i> Salin Nomor</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -339,6 +308,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
