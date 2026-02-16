@@ -1,8 +1,10 @@
 /* --- VARIABLES & FONTS --- */
 :root {
-    --cream: #FAF7F0;     /* Cream lembut premium */
+    --cream: #FAF7F0;     /* Cream Utama */
+    --cream-dark: #E6E2D6; /* Cream agak gelap untuk border/input */
     --green: #4A563A;     /* Hijau Sage Deep */
-    --gold: #C5A059;      /* Emas */
+    --gold: #C5A059;      /* Emas (Aksen Dikit) */
+    
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Montserrat', sans-serif;
     --font-script: 'Great Vibes', cursive;
@@ -16,15 +18,15 @@ body {
     line-height: 1.6;
 }
 
-/* --- TYPOGRAPHY & UTILS --- */
+/* --- UTILS --- */
 .font-aesthetic { font-family: var(--font-heading); font-weight: 600; letter-spacing: -0.5px; }
-.text-green { color: var(--green); }
-.text-cream { color: var(--cream); }
-.bg-cream { background-color: var(--cream); }
-.bg-green { background-color: var(--green); }
+.text-green { color: var(--green) !important; }
+.text-cream { color: var(--cream) !important; }
+.bg-cream { background-color: var(--cream) !important; }
+.bg-green { background-color: var(--green) !important; }
 .letter-spacing-small { letter-spacing: 3px; font-size: 0.75rem; }
 
-/* --- ORNAMENTS (POSISI BUNGA) --- */
+/* --- ORNAMENTS --- */
 .ornamen-pojok-kiri-atas { position: absolute; top: 0; left: 0; width: 160px; opacity: 0.8; z-index: 0; }
 .ornamen-pojok-kanan-atas { position: absolute; top: 0; right: 0; width: 160px; transform: scaleX(-1); opacity: 0.8; z-index: 0; }
 .ornamen-sisi-kiri { position: absolute; top: 50%; left: -60px; width: 140px; transform: translateY(-50%); opacity: 0.5; z-index: 0; }
@@ -34,7 +36,6 @@ body {
 
 @media (max-width: 576px) {
     .ornamen-pojok-kiri-atas, .ornamen-pojok-kanan-atas { width: 110px; }
-    .ornamen-sisi-kiri, .ornamen-sisi-kanan { width: 90px; }
 }
 
 /* --- HERO SECTION --- */
@@ -46,7 +47,6 @@ body {
 }
 .hero-content { flex-grow: 1; z-index: 2; position: relative; }
 
-/* Inisial Overlap (Lebih Menyatu) */
 .inisial-box { position: relative; height: 160px; }
 .inisial-huruf {
     font-family: var(--font-heading);
@@ -67,14 +67,14 @@ body {
     padding: 5px 20px; font-size: 0.9rem; letter-spacing: 2px;
 }
 
-/* Hero Bottom Glass */
-.hero-bottom { width: 100%; z-index: 2; }
+/* Glass Effect diganti jadi Cream Transparan */
 .content-box.glass-effect {
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(250, 247, 240, 0.85); /* Cream Transparan */
     backdrop-filter: blur(12px);
     border-radius: 25px 25px 0 0;
     width: 100%; max-width: 500px;
     box-shadow: 0 -10px 40px rgba(74, 86, 58, 0.1);
+    border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 /* --- BUTTONS --- */
@@ -84,18 +84,18 @@ body {
     font-family: var(--font-body); font-weight: 600; letter-spacing: 1px;
     transition: all 0.3s;
 }
-.btn-custom-cream:hover { background-color: #2e3624; transform: translateY(-3px); color: white; }
+.btn-custom-cream:hover { background-color: #2e3624; transform: translateY(-3px); color: var(--cream); }
 
 .btn-outline-green {
     color: var(--green); border: 1px solid var(--green);
     padding: 10px 25px; border-radius: 50px; background: transparent;
 }
-.btn-outline-green:hover { background-color: var(--green); color: white; }
+.btn-outline-green:hover { background-color: var(--green); color: var(--cream); }
 
 /* --- PAGE ELEMENTS --- */
 .display-2 { font-size: 4rem; }
 .ampersand { font-family: var(--font-script); color: var(--gold); font-size: 0.6em; }
-.quote-text { max-width: 600px; color: #666; }
+.quote-text { max-width: 600px; color: var(--green); opacity: 0.8; }
 .date-badge {
     background: var(--green); color: var(--cream);
     padding: 8px 30px; border-radius: 50px; font-size: 0.9rem; letter-spacing: 1px;
@@ -104,7 +104,7 @@ body {
 /* Ampersand Raksasa */
 .ampersand-huge {
     font-family: var(--font-script);
-    font-size: 7rem; /* Sesuai request: Lebih besar */
+    font-size: 7rem; 
     color: var(--green); opacity: 0.2; line-height: 1;
 }
 
@@ -136,11 +136,13 @@ body {
     color: var(--gold); margin-top: -15px; position: relative; z-index: 3;
 }
 
-/* --- ACARA CARDS --- */
+/* --- ACARA CARDS (CREAM BACKGROUND) --- */
 .card-acara {
-    background: #fff; border-radius: 20px; padding: 40px 30px;
+    background: var(--cream); /* Ganti Putih jadi Cream */
+    border-radius: 20px; padding: 40px 30px;
     position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.03);
     transition: transform 0.4s;
+    color: var(--green);
 }
 .card-acara:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
 .detail-acara p { margin-bottom: 8px; font-weight: 500; }
@@ -151,32 +153,49 @@ body {
     height: 190px; border-radius: 18px; position: relative; overflow: hidden;
     background: linear-gradient(145deg, #4A563A 0%, #293021 100%);
     display: flex; flex-direction: column; padding: 25px; margin-bottom: 10px;
+    color: var(--cream); /* Teks di kartu jadi Cream */
 }
 .card-bg-texture {
     position: absolute; top:0; left:0; width:100%; height:100%; opacity: 0.1;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 11px);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, var(--cream) 10px, var(--cream) 11px);
 }
 .letter-spacing-2 { letter-spacing: 3px; }
 
-/* --- RSVP GLASS --- */
+/* --- RSVP FORM (CREAM VERSION) --- */
+/* Glass Effect Cream */
 .glass-form {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(250, 247, 240, 0.15); /* Cream Transparan */
+    backdrop-filter: blur(8px); 
+    border: 1px solid rgba(250, 247, 240, 0.2);
 }
-.custom-input {
-    background: rgba(255, 255, 255, 0.9); border: none; padding: 14px; border-radius: 10px;
-}
-.custom-input:focus { box-shadow: none; background: #fff; }
 
+/* Input Form Cream */
+.custom-input {
+    background: var(--cream) !important; /* Wajib Cream */
+    border: 1px solid var(--cream-dark); 
+    padding: 14px; border-radius: 10px;
+    color: var(--green);
+}
+.custom-input::placeholder { color: var(--green); opacity: 0.5; }
+.custom-input:focus { box-shadow: 0 0 0 3px rgba(250, 247, 240, 0.3); border-color: var(--cream); }
+
+/* Tombol Form */
+.btn-light-green {
+    background-color: var(--cream); color: var(--green);
+    border: none; padding: 12px; border-radius: 10px; font-weight: bold;
+}
+.btn-light-green:hover { background-color: var(--cream-dark); }
+
+/* Ucapan Container */
 .ucapan-container-glass {
     height: 400px; overflow-y: auto;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.2); /* Gelap transparan agar teks cream terbaca */
     border-radius: 15px; padding: 20px; color: var(--cream);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(250, 247, 240, 0.1);
 }
-.ucapan-item { background: rgba(255,255,255,0.08); padding: 12px; border-radius: 12px; margin-bottom: 12px; }
+.ucapan-item { background: rgba(250, 247, 240, 0.1); padding: 12px; border-radius: 12px; margin-bottom: 12px; }
 
-/* Scrollbar Cantik */
+/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 10px; }
