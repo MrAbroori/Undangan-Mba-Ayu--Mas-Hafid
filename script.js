@@ -146,3 +146,17 @@ const hitungMundur = setInterval(function() {
 function formatWaktu(waktu) {
     return waktu < 10 ? "0" + waktu : waktu;
 }
+
+// --- 6. FUNGSI COPY TEXT ---
+function copyText(elementId) {
+    // Ambil teks dari elemen (innerHTML/innerText)
+    var textToCopy = document.getElementById(elementId).innerText;
+    
+    // Gunakan Clipboard API modern
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        // Tampilkan notifikasi sederhana (Alert)
+        alert("Berhasil disalin: " + textToCopy);
+    }, function(err) {
+        console.error('Gagal menyalin: ', err);
+    });
+}
