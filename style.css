@@ -230,3 +230,50 @@ body {
     max-width: 400px; 
     margin: 1.75rem auto;
 }
+
+/* --- UPDATE CSS: ANIMASI MODAL & INISIAL --- */
+
+/* 1. ANIMASI POP-UP "GELOSOR" TURUN */
+.modal.fade .modal-dialog {
+    /* Posisi awal: Jauh di atas layar */
+    transform: translateY(-100vh); 
+    /* Durasi: 0.8 detik biar terasa 'gelosor' halus */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.modal.show .modal-dialog {
+    /* Posisi akhir: Normal di tengah */
+    transform: translateY(0);
+}
+
+/* 2. INISIAL SALING TIMPA (OVERLAP) */
+/* Kita hapus gap bawaan, dan pakai margin negatif */
+.inisial-box {
+    position: relative;
+    height: 120px; /* Menjaga tinggi agar tidak gepeng */
+}
+
+.inisial-huruf {
+    font-size: 8rem; /* Lebih besar lagi biar mantap */
+    line-height: 0.8;
+    z-index: 1; /* Di belakang bunga */
+    position: relative;
+}
+
+.bunga-tengah {
+    width: 110px; /* Bunga diperbesar */
+    margin-left: -40px; /* Tarik A ke arah bunga */
+    margin-right: -40px; /* Tarik H ke arah bunga */
+    z-index: 2; /* Bunga di depan huruf */
+    position: relative;
+    transform: rotate(15deg);
+    /* Sedikit bayangan putih biar tidak tabrakan warnanya */
+    filter: drop-shadow(0px 0px 5px var(--cream)); 
+}
+
+/* Agar tombol Gift & WA lebarnya sama saat Atas-Bawah */
+.btn-block-custom {
+    width: 100%; /* Lebar penuh */
+    max-width: 300px; /* Tapi jangan kelebaran */
+    margin: 5px 0; /* Jarak antar tombol */
+}
