@@ -61,15 +61,48 @@ body {
 }
 .hero-content { flex-grow: 1; z-index: 2; position: relative; }
 
-.inisial-box { position: relative; height: 160px; }
-.inisial-huruf {
-    font-family: var(--font-heading);
-    font-size: 8rem; line-height: 0.8;
-    color: var(--green); z-index: 1;
+/* Box utama inisial */
+.inisial-box {
+    position: relative;
+    display: flex; /* Memastikan isinya berjejer horizontal */
+    align-items: center;
+    justify-content: center;
+    min-height: 200px; /* Beri ruang yang pasti */
+    width: 100%;
+    z-index: 10; /* Pastikan di depan ornamen */
+    margin: 20px 0;
 }
+
+.inisial-huruf {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(4rem, 15vw, 8rem); /* Ukuran fleksibel: Min 4rem, Max 8rem */
+    color: #4A563A; /* Gunakan kode warna langsung untuk tes (Hijau Sage) */
+    line-height: 1;
+    display: inline-block;
+    position: relative;
+    z-index: 11;
+}
+
 .bunga-tengah {
-    width: 100px; margin: 0 -50px; z-index: 2;
-    filter: drop-shadow(0 0 15px var(--cream)); transform: rotate(10deg);
+    width: clamp(80px, 20vw, 140px); /* Ukuran fleksibel */
+    height: auto;
+    margin: 0 -30px; /* Margin negatif agar merapat ke huruf */
+    z-index: 12;
+    transform: rotate(10deg);
+    /* Filter agar gambar tetap muncul meskipun path bermasalah (opsional) */
+    min-height: 50px; 
+}
+
+/* Tambahkan ini untuk memastikan Hero Content punya ruang */
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 5;
 }
 
 .nama-lengkap-hero {
@@ -346,4 +379,70 @@ body {
 /* Jalankan animasinya pada class animate-zoom */
 .animate-zoom {
     animation: zoomIn 1.2s ease-out forwards;
+}
+
+/* Container Utama Countdown */
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Jarak antar kotak */
+    margin-top: 20px;
+}
+
+/* Desain Kotak Angka */
+.time-box {
+    background: var(--cream); /* Warna kotak */
+    border: 1.5px solid var(--green); /* Garis pinggir hijau sage */
+    border-radius: 15px; /* Sudut melengkung */
+    padding: 15px 10px;
+    min-width: 80px; /* Lebar minimal kotak */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 0px var(--green); /* Efek bayangan kotak estetik */
+    transition: transform 0.3s ease;
+}
+
+.time-box:hover {
+    transform: translateY(-5px); /* Efek angkat saat disentuh */
+}
+
+/* Styling Angka Besar */
+.time-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem; 
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+/* Styling Label (Hari, Jam, dsb) */
+.time-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--green);
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 576px) {
+    #countdown {
+        gap: 10px;
+    }
+    .time-box {
+        min-width: 70px;
+        padding: 10px 5px;
+        box-shadow: 3px 3px 0px var(--green);
+    }
+    .time-number {
+        font-size: 1.8rem;
+    }
+    .time-label {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
 }
