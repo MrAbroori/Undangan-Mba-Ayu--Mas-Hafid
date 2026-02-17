@@ -381,68 +381,81 @@ body {
     animation: zoomIn 1.2s ease-out forwards;
 }
 
-/* Container Utama Countdown */
+/* Container pembungkus semua kotak */
 #countdown {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Jarak antar kotak */
-    margin-top: 20px;
+    perspective: 1000px;
 }
 
-/* Desain Kotak Angka */
+/* Desain per kotak */
 .time-box {
-    background: var(--cream); /* Warna kotak */
-    border: 1.5px solid var(--green); /* Garis pinggir hijau sage */
-    border-radius: 15px; /* Sudut melengkung */
-    padding: 15px 10px;
-    min-width: 80px; /* Lebar minimal kotak */
+    background-color: #ffffff; /* Latar putih bersih agar angka nampak jelas */
+    border: 1px solid var(--green); /* Garis tepi hijau sage */
+    
+    /* Ukuran kotak (Sama lebar dan tinggi agar simetris) */
+    width: 80px;
+    height: 90px;
+    
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    box-shadow: 5px 5px 0px var(--green); /* Efek bayangan kotak estetik */
-    transition: transform 0.3s ease;
+    align-items: center;
+    
+    border-radius: 12px; /* Sudut kotak agak melengkung */
+    
+    /* Efek bayangan agar kotak terlihat timbul */
+    box-shadow: 0 4px 15px rgba(74, 86, 58, 0.15);
+    
+    position: relative;
+    overflow: hidden;
 }
 
-.time-box:hover {
-    transform: translateY(-5px); /* Efek angkat saat disentuh */
+/* Dekorasi garis di tengah kotak (opsional, memberikan kesan lipatan kartu) */
+.time-box::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(74, 86, 58, 0.05);
 }
 
-/* Styling Angka Besar */
+/* Angka Besar di dalam kotak */
 .time-number {
     font-family: var(--font-heading);
-    font-size: 2.5rem; 
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--green);
     line-height: 1;
-    margin-bottom: 5px;
+    z-index: 2;
 }
 
-/* Styling Label (Hari, Jam, dsb) */
+/* Label di bawah angka */
 .time-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     color: var(--green);
-    font-weight: 500;
-    opacity: 0.8;
+    margin-top: 5px;
+    font-weight: 600;
+    z-index: 2;
 }
 
-/* Responsif untuk HP */
+/* Responsif untuk layar HP kecil */
 @media (max-width: 576px) {
-    #countdown {
-        gap: 10px;
-    }
     .time-box {
-        min-width: 70px;
-        padding: 10px 5px;
-        box-shadow: 3px 3px 0px var(--green);
+        width: 65px;
+        height: 75px;
+        border-radius: 8px;
     }
     .time-number {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     .time-label {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
         letter-spacing: 1px;
+    }
+    #countdown {
+        gap: 8px !important; /* Jarak antar kotak lebih rapat di HP */
     }
 }
