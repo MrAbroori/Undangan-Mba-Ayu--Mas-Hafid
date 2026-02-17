@@ -89,7 +89,7 @@ body {
 /* Huruf H (Kanan) - Turun Sedikit */
 .huruf-kanan {
     transform: translateY(25px); /* Geser ke bawah */
-    margin-left: -20px; /* Rapatkan ke bunga */
+    margin-left: -15px; /* Rapatkan ke bunga */
 }
 
 .bunga-tengah {
@@ -497,6 +497,6 @@ body {
 @media (max-width: 576px) {
     .inisial-huruf { font-size: 5.5rem; }
     .bunga-tengah { width: 90px; }
-    .huruf-kiri { transform: translateY(-15px); }
-    .huruf-kanan { transform: translateY(15px); }
+    .huruf-kiri { transform: translateY(-17px); }
+    .huruf-kanan { transform: translateY(17px); }
 }
