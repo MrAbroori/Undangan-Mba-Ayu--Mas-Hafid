@@ -276,3 +276,14 @@ const hitungMundur = setInterval(function() {
         elCountdown.innerHTML = "<h3 class='font-aesthetic text-cream'>Alhamdulillah, Acara Telah Selesai</h3>";
     }
 }, 1000);
+
+// --- 7. INISIALISASI ANIMASI SCROLL (AOS) ---
+// Jalankan hanya jika library AOS sudah termuat
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        duration: 800, // Durasi animasi (ms)
+        easing: 'ease-in-out', // Gaya gerakan
+        once: true, // Animasi hanya sekali saat scroll ke bawah
+        mirror: false // Jangan animasi ulang saat scroll ke atas
+    });
+}
