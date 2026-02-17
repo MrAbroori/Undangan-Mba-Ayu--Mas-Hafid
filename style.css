@@ -53,133 +53,161 @@ body {
 }
 
 /* HERO SECTION */
-
 .hero-container {
-    /* UBAH INI: Agar cover mengambang di atas dan tidak mendorong konten ke bawah */
     position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    z-index: 9999;
     
-    /* Z-Index tinggi agar menutupi semuanya di awal */
-    z-index: 9999; 
+    /* Background Mewah */
+    background: radial-gradient(circle at center, #FAF7F0 20%, #EBE5D5 100%);
     
-    background: radial-gradient(circle at center, #FAF7F0 0%, #EBE5D5 100%);
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between;
-    overflow: hidden;
-    transition: transform 1s ease-in-out; /* Animasi geser halus */
-}
-
-.hero-content { 
-    flex-grow: 1; 
-    z-index: 2; 
-    position: relative; 
-    /* Membuat konten tersebar merata agar mengisi ruang kosong */
-    display: flex;
-    flex-direction: column;
+    display: flex; flex-direction: column; 
+    /* Ubah ini agar konten tersebar lebih rapi */
     justify-content: center; 
     align-items: center;
-    padding-bottom: 50px; /* Memberi jarak agar tidak menabrak kotak bawah */
+    overflow: hidden;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* 1. Teks "The Wedding Of" Lebih Jelas */
-.text-tracking-top {
-    letter-spacing: 6px;
-    font-size: 1.1rem; /* Diperbesar dari 0.75rem */
-    font-weight: 600;
-    color: var(--green);
-    opacity: 0.9;
-    margin-bottom: 2rem !important; /* Jarak ke inisial lebih jauh */
-}
-
-/* 2. Inisial RAKSASA & MEWAH */
-.inisial-box { 
-    position: relative; 
-    height: 250px; /* Area inisial dipertinggi */
-    width: 100%;
-    max-width: 600px; /* Diperlebar */
-    display: flex;
-    justify-content: center;
+/* CONTAINER TENGAH (JUDUL, INISIAL, NAMA) */
+.hero-content { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; /* Konten benar-benar di tengah layar */
     align-items: center;
+    width: 100%;
+    margin-top: -20px; /* Sedikit naik biar tidak mepet bawah */
+}
+
+/* 1. JUDUL "THE WEDDING OF" (EMAS & CETAR) */
+.text-tracking-top {
+    font-family: var(--font-heading); /* Ganti font jadi Serif biar cetar */
+    font-size: 1.2rem;
+    letter-spacing: 5px; 
+    color: var(--gold); /* WARNA EMAS */
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* 2. INISIAL (UKURAN DIPERBAIKI) */
+.inisial-box {
+    position: relative;
+    height: 160px; /* Tinggi dikurangi biar gak makan tempat */
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 10px;
 }
 
 .inisial-huruf {
-    font-family: var(--font-heading); 
-    font-size: 11rem; /* DIPERBESAR (Sebelumnya 7.5rem) */
-    line-height: 0.8;
-    color: var(--green); 
-    z-index: 1;
+    font-family: var(--font-heading);
+    font-size: 7.5rem; /* Ukuran pas (tidak raksasa) */
+    line-height: 1;
+    color: var(--green);
     position: relative;
-    text-shadow: 4px 4px 0px rgba(197, 160, 89, 0.2); 
+    z-index: 1;
+    text-shadow: 3px 3px 0px rgba(197, 160, 89, 0.25); 
 }
 
-/* Mengatur posisi naik-turun agar lebih drastis */
 .huruf-kiri {
-    transform: translateY(-50px); /* Naik lebih tinggi */
-    margin-right: -40px;          /* Lebih nempel ke bunga */
+    transform: translateY(-25px); 
+    margin-right: -25px; 
 }
 
 .huruf-kanan {
-    transform: translateY(50px);  /* Turun lebih rendah */
-    margin-left: -40px; 
+    transform: translateY(25px); 
+    margin-left: -25px; 
 }
 
 .bunga-tengah {
-    width: 200px; /* DIPERBESAR (Sebelumnya 120px) */
+    width: 110px; /* Ukuran bunga diperkecil sedikit */
     z-index: 2;
-    filter: drop-shadow(0 15px 30px rgba(74, 86, 58, 0.25));
-    transform: rotate(5deg);
+    filter: drop-shadow(0 10px 15px rgba(74, 86, 58, 0.15));
+    transform: rotate(10deg);
 }
 
-/* 3. Nama Mempelai Lebih Besar */
+/* 3. NAMA LENGKAP & TANGGAL */
 .nama-lengkap-hero {
-    font-family: var(--font-heading); 
-    font-size: 4rem; /* DIPERBESAR (Sebelumnya 2.5rem) */
-    font-style: italic; 
+    font-family: var(--font-heading);
+    font-size: 2.5rem; /* Ukuran standar elegan */
+    font-style: italic;
     color: var(--green);
-    letter-spacing: -1px;
-    margin-top: 3rem !important; /* Jarak dari inisial */
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-/* 4. Tanggal */
 .tanggal-hero {
-    border-top: 2px solid var(--green);    /* Garis lebih tebal */
-    border-bottom: 2px solid var(--green);
-    padding: 10px 40px; 
-    font-size: 1.1rem; /* Diperbesar */
-    letter-spacing: 5px; 
-    text-transform: uppercase;
+    border-top: 1px solid var(--green);
+    border-bottom: 1px solid var(--green);
+    padding: 6px 20px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
     color: var(--green);
-    font-weight: 600;
+    text-transform: uppercase;
 }
 
-/* 5. Kotak Bawah (Glass) */
+/* 4. KOTAK BAWAH (DIBUAT LEBIH PENDEK & NAIK) */
+.hero-bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 .content-box.glass-effect {
-    background: rgba(250, 247, 240, 0.75); 
-    backdrop-filter: blur(20px);          
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 40px 40px 0 0; /* Lengkungan lebih besar */
-    width: 100%; 
-    max-width: 600px; /* Kotak lebih lebar */
-    box-shadow: 0 -20px 60px rgba(74, 86, 58, 0.2); 
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 2.5rem !important; /* Padding dalam lebih lega */
+    background: rgba(250, 247, 240, 0.85);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-radius: 25px 25px 0 0;
+    width: 100%; max-width: 450px; /* Lebar dibatasi */
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.6);
+    
+    /* PENTING: Padding dikurangi biar gak tinggi banget */
+    padding: 20px 20px 30px 20px !important; 
+    margin: 0 auto; /* Tengah */
 }
 
-/* --- RESPONSIVE (Agar tidak pecah di HP Kecil) --- */
-@media (max-width: 576px) {
-    .inisial-huruf { font-size: 7rem; }
-    .bunga-tengah { width: 140px; }
-    .huruf-kiri { transform: translateY(-30px); margin-right: -25px; }
-    .huruf-kanan { transform: translateY(30px); margin-left: -25px; }
-    .nama-lengkap-hero { font-size: 2.5rem; margin-top: 2rem !important; }
-    .tanggal-hero { font-size: 0.9rem; padding: 8px 20px; }
-    .content-box.glass-effect { padding: 1.5rem !important; }
+/* 5. TEXT DI DALAM KOTAK */
+.salam-pembuka { font-size: 0.85rem; margin-bottom: 5px; }
+.nama-tamu { font-size: 1.5rem; margin-bottom: 5px; color: var(--green); font-weight: bold;}
+.kalimat-undangan { font-size: 0.8rem; margin-bottom: 15px; line-height: 1.4; }
+
+
+/* 6. TOMBOL BUKA UNDANGAN (KECIL & MANIS) */
+.btn-buka-undangan {
+    background-color: var(--green);
+    color: var(--cream);
+    border: none;
+    padding: 10px 25px; 
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(74, 86, 58, 0.3);
+}
+
+.btn-buka-undangan:hover {
+    transform: translateY(-2px);
+    background-color: #3e4830;
+}
+
+/* --- RESPONSIF KHUSUS HP KECIL (iPhone SE, Android Kecil) --- */
+@media (max-height: 700px) {
+    /* Perkecil elemen jika layar pendek */
+    .inisial-huruf { font-size: 5.5rem; }
+    .bunga-tengah { width: 80px; }
+    .inisial-box { height: 120px; }
+    .huruf-kiri { transform: translateY(-15px); }
+    .huruf-kanan { transform: translateY(15px); }
+    
+    .text-tracking-top { font-size: 1rem; margin-bottom: 1rem; }
+    .nama-lengkap-hero { font-size: 2rem; margin-top: 0.5rem; }
+    
+    /* Kotak bawah dipendekkan lagi */
+    .content-box.glass-effect { padding: 15px 15px 25px 15px !important; }
+    .kalimat-undangan { display: none; } /* Hilangkan kalimat panjang di HP sangat kecil */
 }
 
 /* --- BUTTONS --- */
