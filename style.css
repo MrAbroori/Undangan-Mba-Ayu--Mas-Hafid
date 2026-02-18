@@ -206,18 +206,19 @@ body {
     color: var(--green) !important; 
 }
 
-/* 3. Tombol Copy Saldo & Kirim RSVP (.btn-light-green) */
+/* 3. Tombol Copy Saldo & Kirim RSVP (.btn-light-green) - TETAP CREAM (TIDAK DITUKAR) */
 .btn-light-green {
-    padding: 12px; border-radius: 10px; font-weight: bold;
+    background-color: var(--cream) !important; 
+    color: var(--green) !important;
+    border: none !important; 
+    padding: 12px; 
+    border-radius: 10px; 
+    font-weight: bold;
     transition: all 0.3s ease;
-    
-    /* Warna Baru */
-    background-color: var(--green) !important; 
-    color: var(--cream) !important;
-    border: 1px solid var(--green) !important;
 }
+
 .btn-light-green:hover, .btn-light-green:active { 
-    background-color: var(--cream) !important;
+    background-color: var(--cream-dark) !important; /* Berubah jadi cream agak gelap saat disentuh */
     color: var(--green) !important;
 }
 
