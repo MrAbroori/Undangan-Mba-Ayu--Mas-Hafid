@@ -584,17 +584,16 @@ button.btn-buka-final:hover {
 }
 
 /* =========================================
-   FOOTER / PENUTUP (Gaya Nama & Border)
+   FOOTER / PENUTUP (Natural)
    ========================================= */
 
-/* Gaya Nama di Footer (Meniru Page 1 tapi dipastikan warna Hijau) */
+/* Gaya Nama di Footer (Meniru Page 1 dengan warna Hijau) */
 .nama-mempelai-footer {
     font-family: var(--font-heading);
-    /* Ukuran responsif: besar di HP, sangat besar di desktop */
-    font-size: clamp(3rem, 8vw, 5rem); 
+    font-size: clamp(3rem, 8vw, 5rem); /* Ukuran membesar proporsional */
     font-weight: 600;
     font-style: italic;
-    color: var(--green); /* Pastikan warnanya hijau */
+    color: var(--green); /* Warna Hijau */
     line-height: 1.2;
     margin-bottom: 20px;
     letter-spacing: -1px;
@@ -602,10 +601,15 @@ button.btn-buka-final:hover {
 
 /* Memastikan simbol & emas ukurannya proporsional */
 .nama-mempelai-footer .dan-simbol-emas {
+     font-family: var(--font-script);
      font-size: clamp(2.5rem, 7vw, 4rem);
+     color: var(--gold) !important;
+     margin: 0 5px;
+     font-weight: normal;
+     font-style: normal;
 }
 
-/* Helper khusus untuk border warna hijau (pengganti border-light) */
+/* Helper garis batas hijau */
 .border-green {
     border-color: var(--green) !important;
 }
