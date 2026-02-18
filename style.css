@@ -1,24 +1,31 @@
-/* --- UPDATE STYLE.CSS PALING ATAS --- */
+/* =========================================
+   1. SETUP VARIABEL, FONTS, & RESET DASAR
+   ========================================= */
 html, body {
     max-width: 100%;
     overflow-x: hidden !important; /* KUNCI: Matikan scroll horizontal */
     position: relative;
 }
 
-/* Pastikan semua section juga tidak melebar */
 section {
     width: 100%;
-    overflow-x: hidden; /* Tambahan pengaman per halaman */
+    overflow-x: hidden; 
     position: relative;
 }
 
-/* --- VARIABLES & FONTS --- */
 :root {
-    --cream: #faf3dd;      /* Cream Request Baru */
-    --cream-dark: #e8e1c9; /* Disesuaikan sedikit untuk border jika butuh */
-    --green: #5b6946;      /* Hijau Sage Request Baru */
-    --gold: #C5A059;       /* Emas (Aksen Dikit) */
+    /* WARNA UTAMA SESUAI REQUEST */
+    --cream: #faf3dd;      
+    --cream-dark: #e8e1c9; 
+    --green: #5b6946;      
+    --gold: #C5A059;       
+
+    /* ALIAS UNTUK KOMPATIBILITAS KODE SEBELUMNYA */
+    --cream-bg: var(--cream);
+    --green-dark: var(--green);
+    --gold-accent: var(--gold);
     
+    /* FONT SESUAI REQUEST */
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Montserrat', sans-serif;
     --font-script: 'Great Vibes', cursive;
@@ -52,37 +59,28 @@ body {
     .ornamen-pojok-kiri-atas, .ornamen-pojok-kanan-atas { width: 110px; }
 }
 
-/* =========================================
-   1. SETUP VARIABEL & CONTAINER UTAMA
-   ========================================= */
-:root {
-    --cream-bg: #F9F5E9;
-    --green-dark: #4A5D43;
-    --gold-accent: #C5A059;
-}
 
-/* Container Full Layar */
+/* =========================================
+   2. HERO SECTION (SAMPUL DEPAN)
+   *(Sudah Diperkecil / Zoom-Out Minimalis)*
+   ========================================= */
 .hero-container {
     position: fixed;
     top: 0; left: 0; 
     width: 100%; 
-    height: 100vh; /* Fallback */
-    height: 100dvh; /* Support layar HP modern */
+    height: 100vh; 
+    height: 100dvh; 
     z-index: 9999;
-    background-color: var(--cream-bg); /* Background atas Cream */
-    
+    background-color: var(--cream-bg); 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Memisahkan Atas & Bawah */
+    justify-content: space-between; 
     align-items: center;
     overflow: hidden;
 }
 
-/* =========================================
-   2. BAGIAN ATAS (INISIAL & BUNGA)
-   ========================================= */
 .hero-content {
-    flex-grow: 1; /* Mengisi sisa ruang agar seimbang */
+    flex-grow: 1; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,11 +89,10 @@ body {
     z-index: 1;
 }
 
-/* WADAH INISIAL (Ukuran Desktop Default) */
 .inisial-box-final {
     position: relative;
-    width: 280px; 
-    height: 300px;
+    width: 250px; /* Diperkecil */
+    height: 270px; /* Diperkecil */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,49 +100,39 @@ body {
 
 .inisial-huruf {
     font-family: var(--font-heading), serif;
-    font-size: 11rem;
+    font-size: 8.5rem; /* Zoom-out (sebelumnya 11rem) */
     color: var(--green-dark);
     line-height: 1;
     position: absolute;
     z-index: 1;
-    transition: all 0.5s ease; /* Transisi halus jika resize */
+    transition: all 0.5s ease;
 }
 
-/* Posisi Desktop (Aman) */
 .huruf-a { top: 0; left: 0; transform: translate(-10px, -20px); }
 .huruf-h { bottom: 0; right: 0; transform: translate(10px, 40px); }
 
 .bunga-tulip {
-    width: 110px;
+    width: 85px; /* Zoom-out (sebelumnya 110px) */
     height: auto;
     z-index: 2;
     transform: translateY(10px);
     filter: drop-shadow(0 5px 15px rgba(74, 93, 67, 0.2));
 }
 
-/* =========================================
-   3. BAGIAN BAWAH (BACKGROUND HIJAU)
-   ========================================= */
 .hero-bottom-wrapper {
-    /* BACKGROUND HIJAU PENUH DI BAWAH */
     background-color: var(--green-dark); 
     width: 100%;
-    
-    /* Lengkungan Manis di Atas */
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
-    
-    padding: 35px 20px 40px 20px; /* Padding pas untuk HP */
-    
+    padding: 35px 20px 40px 20px; 
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     z-index: 10;
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.1); /* Efek tumpuk */
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1); 
 }
 
-/* Judul Kecil (Emas di atas Hijau) */
 .the-wedding-text {
     color: var(--gold-accent);
     font-family: var(--font-body), sans-serif;
@@ -156,211 +143,52 @@ body {
     text-transform: uppercase;
 }
 
-/* Nama Mempelai (Cream Terang di atas Hijau) */
 .nama-mempelai-hero {
     color: var(--cream-bg);
     font-family: var(--font-heading), serif;
-    font-size: 2.5rem;
+    font-size: 2rem; /* Zoom-out (sebelumnya 2.5rem) */
     margin: 0 0 20px 0;
     line-height: 1.2;
 }
 
 .dan-simbol { color: var(--gold-accent); }
 
-/* =========================================
-   4. KOTAK TAMU (TRANSPARAN / MENYATU)
-   ========================================= */
 .tamu-box-final {
     width: 100%;
-    max-width: 350px;
-    /* BACKGROUND TRANSPARAN (Sesuai Request) */
-    background: rgba(255, 255, 255, 0.05); /* Sedikit hint putih agar rapi */
-    border: 1px solid rgba(255, 245, 233, 0.2); /* Garis tipis halus */
-    border-radius: 15px;
-    padding: 15px;
+    max-width: 300px; /* Ramping minimalis (sebelumnya 350px) */
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 245, 233, 0.2); 
+    border-radius: 12px;
+    padding: 12px;
     margin-bottom: 25px;
 }
 
-.kepada-text {
-    font-size: 0.8rem;
-    color: var(--cream-bg);
-    opacity: 0.8;
-    margin: 0 0 5px 0;
-}
+.kepada-text { font-size: 0.8rem; color: var(--cream-bg); opacity: 0.8; margin: 0 0 5px 0; }
+.nama-tamu-final { font-family: var(--font-body), sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin: 5px 0; text-transform: capitalize; letter-spacing: 0.5px; }
+.maaf-text { font-size: 0.6rem; font-style: italic; color: var(--cream-bg); opacity: 0.6; margin: 5px 0 0 0; }
 
-.nama-tamu-final {
-    font-family: var(--font-body), sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #fff; /* Nama Putih Bersih */
-    margin: 5px 0;
-    text-transform: capitalize;
-    letter-spacing: 0.5px;
-}
-
-.maaf-text {
-    font-size: 0.6rem;
-    font-style: italic;
-    color: var(--cream-bg);
-    opacity: 0.6;
-    margin: 5px 0 0 0;
-}
-
-/* =========================================
-   5. TOMBOL BUKA (CREAM DI ATAS HIJAU)
-   ========================================= */
 .btn-buka-final {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    
-    background-color: var(--cream-bg); /* Tombol Terang */
-    color: var(--green-dark); /* Teks Gelap */
-    
-    border: none;
-    padding: 12px 40px;
-    border-radius: 50px;
-    font-family: var(--font-body), sans-serif;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background-color: var(--cream-bg); color: var(--green-dark);
+    border: none; padding: 12px 40px; border-radius: 50px;
+    font-family: var(--font-body), sans-serif; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; font-size: 0.8rem; cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: transform 0.3s;
 }
+.btn-buka-final:hover { transform: translateY(-3px); background-color: #fff; }
 
-.icon-buka {
-    width: 16px;
-    height: 16px;
-    stroke: var(--green-dark);
-}
-
-.btn-buka-final:hover {
-    transform: translateY(-3px);
-    background-color: #fff;
-}
 
 /* =========================================
-   6. ANIMASI (JANGAN DIHAPUS)
+   3. PAGE 1: FOTO LINGKARAN, NAMA SEBARIS & COUNTDOWN TRANSPARAN
+   *(Sudah Diperkecil / Zoom-Out Minimalis)*
    ========================================= */
-.animate-up {
-    animation: fadeInUp 1s ease forwards;
-    opacity: 0;
-    transform: translateY(20px);
-}
 
-.animate-zoom {
-    animation: zoomIn 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-.delay-1 { animation-delay: 0.3s; }
-.delay-2 { animation-delay: 0.6s; }
-.delay-3 { animation-delay: 0.9s; }
-
-@keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoomIn {
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* =========================================
-   7. KHUSUS HP (LAYOUT FIX)
-   Agar Huruf Mepet & Tampilan Pas
-   ========================================= */
-@media screen and (max-width: 600px) {
-    
-    /* PENGATURAN HURUF AGAR MEPET (Sesuai Request) */
-    .inisial-box-final {
-        width: 140px;  /* Wadah dipersempit */
-        height: 160px;
-    }
-    
-    .inisial-huruf {
-        font-size: 7rem; /* Font disesuaikan */
-    }
-
-    /* Paksa Huruf A Geser Masuk ke Kanan */
-    .huruf-a {
-        transform: translate(17px, 10px) !important; 
-    }
-
-    /* Paksa Huruf H Geser Masuk ke Kiri */
-    .huruf-h {
-        transform: translate(-17px, -20px) !important;
-    }
-
-    .bunga-tulip {
-        width: 80px;
-        transform: translateY(5px);
-    }
-
-    /* PENGATURAN BAGIAN BAWAH HP */
-    .hero-bottom-wrapper {
-        padding: 25px 15px 30px 15px; /* Padding sedikit dikurangi biar muat */
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-    }
-
-    .nama-mempelai-hero {
-        font-size: 2rem;
-        margin-bottom: 15px;
-    }
-
-    /* Kotak Tamu di HP */
-    .tamu-box-final {
-        padding: 10px;
-        margin-bottom: 20px;
-        background: rgba(255, 255, 255, 0.05); /* Pastikan tetap transparan */
-    }
-    
-    .nama-tamu-final {
-        font-size: 1.1rem;
-    }
-}
-
-/* Tambahan untuk HP Layar Sangat Pendek (iPhone SE/J2 Prime) */
-@media screen and (max-height: 650px) {
-    .hero-bottom-wrapper { padding-top: 20px; }
-    .nama-mempelai-hero { font-size: 1.6rem; margin-bottom: 10px; }
-    .btn-buka-final { padding: 10px 30px; }
-}
-
-/* --- BUTTONS --- */
-.btn-custom-cream {
-    background-color: var(--green); color: var(--cream);
-    border: none; padding: 12px 35px; border-radius: 50px;
-    font-family: var(--font-body); font-weight: 600; letter-spacing: 1px;
-    transition: all 0.3s;
-}
-.btn-custom-cream:hover { background-color: #2e3624; transform: translateY(-3px); color: var(--cream); }
-
-.btn-outline-green {
-    color: var(--green); border: 1px solid var(--green);
-    padding: 10px 25px; border-radius: 50px; background: transparent;
-}
-.btn-outline-green:hover { background-color: var(--green); color: var(--cream); }
-
-/* --- PAGE ELEMENTS --- */
-.display-2 { font-size: 4rem; }
-.ampersand { font-family: var(--font-script); color: var(--gold); font-size: 0.6em; }
-.quote-text { max-width: 600px; color: var(--green); opacity: 0.8; }
-.date-badge {
-    background: var(--green); color: var(--cream);
-    padding: 8px 30px; border-radius: 50px; font-size: 0.9rem; letter-spacing: 1px;
-}
-
-/* --- REVISI PAGE 1 (FOTO LINGKARAN & NAMA SEBARIS) --- */
+/* Foto Berdua (Lingkaran Proporsional) */
 .frame-lingkaran {
-    width: clamp(140px, 40vw, 220px); 
-    height: clamp(140px, 40vw, 220px);
+    width: clamp(120px, 35vw, 170px); /* Zoom-out dari max 220px */
+    height: clamp(120px, 35vw, 170px);
     border-radius: 50%;
-    border: 3px solid var(--green); /* Menggunakan warna hijau */
+    border: 3px solid var(--green);
     overflow: hidden;
     position: relative;
     z-index: 2;
@@ -368,16 +196,13 @@ body {
 }
 
 .img-berdua {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
 }
 
-/* --- REVISI NAMA SEBARIS (KEMBALI ELEGAN) --- */
+/* Nama Sebaris Elegan (Sesuai Janji: Font Cormorant & Emas) */
 .nama-mempelai-sebaris {
-    font-family: var(--font-heading); /* Kembali menggunakan gaya elegan (Cormorant) */
-    font-size: clamp(3rem, 10vw, 5.5rem); /* Ukuran besar namun tetap aman di HP */
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 6vw, 4rem); /* Proporsi Zoom-out */
     font-weight: 600;
     font-style: italic;
     color: var(--green);
@@ -385,47 +210,92 @@ body {
     z-index: 2;
     position: relative;
     margin: 0;
-    letter-spacing: -2px; /* Dibuat agak rapat agar estetikanya kembali */
+    letter-spacing: -1px;
 }
 
-/* Khusus untuk simbol & */
 .dan-simbol-emas {
-    font-family: var(--font-script); /* Menggunakan gaya latin (Great Vibes) */
-    font-size: clamp(2.5rem, 8vw, 4.5rem); /* Sedikit lebih kecil dari nama */
-    color: var(--gold) !important; /* Memaksa warna menjadi emas / #C5A059 */
+    font-family: var(--font-script);
+    font-size: clamp(1.8rem, 5vw, 3rem); /* Ukuran Emas menyesuaikan */
+    color: var(--gold) !important; 
     margin: 0 5px;
     font-weight: normal;
     font-style: normal;
 }
 
-.quote-text-revisi {
+/* Teks Kutipan Undangan */
+.quote-text { 
     max-width: 600px; 
     color: var(--green); 
-    opacity: 0.85;
-    font-size: 0.95rem;
+    opacity: 0.85; 
+    font-size: 0.95rem; /* Ukuran elegan */
     line-height: 1.6;
+    margin: 0 auto;
 }
 
-/* Ampersand Raksasa */
-.ampersand-huge {
-    font-family: var(--font-script);
-    font-size: 7rem; 
-    color: var(--green); opacity: 0.2; line-height: 1;
+.date-badge {
+    background: var(--green); color: var(--cream);
+    padding: 8px 30px; border-radius: 50px; font-size: 0.9rem; letter-spacing: 1px;
+    display: inline-block;
 }
 
-/* Countdown */
+/* Hitung Mundur (Transparan & Ramping) */
+#countdown {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
 .time-box {
-    display: flex; flex-direction: column; align-items: center;
-    min-width: 65px;
+    background-color: transparent !important; /* Wajib Transparan */
+    border: 1px solid var(--green); /* Garis tepi hijau sage */
+    
+    width: 60px;  /* Zoom-out (sebelumnya 75px/80px) */
+    height: 70px; /* Zoom-out */
+    
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    border-radius: 8px; /* Lebih halus */
+    box-shadow: none !important; /* Hilangkan bayangan */
 }
-.time-number { font-family: var(--font-heading); font-size: 2.8rem; line-height: 1; font-weight: 600; }
-.time-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; }
 
-/* Quote Section */
+.time-box::after { display: none; /* Hilangkan garis lipatan */ }
+
+.time-number {
+    font-family: var(--font-heading);
+    font-size: 1.6rem; /* Zoom-out */
+    font-weight: 700;
+    color: var(--green) !important;
+    line-height: 1;
+}
+
+.time-label {
+    font-size: 0.55rem; /* Lebih kecil elegan */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--green) !important;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   4. HALAMAN LAIN (PAGE 2, 3, 4, GIFT, RSVP)
+   ========================================= */
+
+/* Button Simpan Kalender */
+.btn-outline-green {
+    color: var(--green); border: 1px solid var(--green);
+    padding: 10px 25px; border-radius: 50px; background: transparent;
+}
+.btn-outline-green:hover { background-color: var(--green); color: var(--cream); }
+
+/* Quote Section (Ayat Suci) */
 .quote-box { max-width: 700px; margin: 0 auto; }
 .divider-cream { width: 80px; height: 2px; background-color: var(--cream); }
 
-/* --- MEMPELAI (ARCH) --- */
+/* Mempelai (Arch Foto) */
+.ampersand-huge { font-family: var(--font-script); font-size: 7rem; color: var(--green); opacity: 0.2; line-height: 1; }
 .mempelai-card { position: relative; z-index: 2; }
 .arch-frame {
     width: 220px; height: 280px;
@@ -441,9 +311,9 @@ body {
     color: var(--gold); margin-top: -15px; position: relative; z-index: 3;
 }
 
-/* --- ACARA CARDS (CREAM BACKGROUND) --- */
+/* Acara Cards (Warna Cream) */
 .card-acara {
-    background: var(--cream); /* Ganti Putih jadi Cream */
+    background: var(--cream); 
     border-radius: 20px; padding: 40px 30px;
     position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.03);
     transition: transform 0.4s;
@@ -452,302 +322,116 @@ body {
 .card-acara:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
 .detail-acara p { margin-bottom: 8px; font-weight: 500; }
 
-/* --- GIFT (Collapse Style) --- */
+/* Wedding Gift Card (Premium) */
 .btn-block-custom { width: 100%; max-width: 300px; }
-/* --- PREMIUM CARD STYLING --- */
-
 .credit-card {
-    height: 230px; /* Dipertinggi sedikit agar proporsional */
+    height: 230px; 
     border-radius: 20px; 
     position: relative; 
     overflow: hidden;
-    /* Gradient Mewah: Hijau Gelap ke Hijau Sage */
-    background: linear-gradient(135deg, #2F3825 0%, #4A563A 100%);
-    display: flex; 
-    flex-direction: column; 
-    padding: 25px; 
-    margin-bottom: 15px;
-    box-shadow: 0 10px 30px rgba(47, 56, 37, 0.3); /* Shadow lembut */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Border tipis premium */
+    background: linear-gradient(135deg, #4A563A 0%, #5b6946 100%); /* Disesuaikan ke Hijau Sage Baru */
+    display: flex; flex-direction: column; padding: 25px; margin-bottom: 15px;
+    box-shadow: 0 10px 30px rgba(91, 105, 70, 0.3); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
 }
-
-/* Tekstur Noise Halus (Matte Finish) */
 .card-bg-texture {
-    position: absolute; 
-    top: 0; left: 0; width: 100%; height: 100%; 
-    opacity: 0.4;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.4;
     background-image: radial-gradient(#ffffff 1px, transparent 1px);
-    background-size: 20px 20px; /* Pola titik-titik halus */
-    z-index: 0;
+    background-size: 20px 20px; z-index: 0;
 }
-
-/* Dekorasi Lingkaran Abstrak (Biar tidak polos) */
 .card-circle-decor {
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
+    position: absolute; top: -50px; right: -50px; width: 200px; height: 200px;
     background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-    border-radius: 50%;
-    z-index: 0;
+    border-radius: 50%; z-index: 0;
 }
-
-.card-content {
-    position: relative;
-    z-index: 2; /* Agar teks di atas tekstur */
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Typography Khusus Kartu */
+.card-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
 .letter-spacing-2 { letter-spacing: 2px; }
 
-/* --- RSVP FORM (CREAM VERSION) --- */
-/* Glass Effect Cream */
+/* RSVP Form (Glass Cream) */
 .glass-form {
-    background: rgba(250, 247, 240, 0.15); /* Cream Transparan */
+    background: rgba(250, 243, 221, 0.15); /* Menggunakan warna var(--cream) */
     backdrop-filter: blur(8px); 
-    border: 1px solid rgba(250, 247, 240, 0.2);
+    border: 1px solid rgba(250, 243, 221, 0.2);
 }
-
-/* Input Form Cream */
 .custom-input {
-    background: var(--cream) !important; /* Wajib Cream */
+    background: var(--cream) !important; 
     border: 1px solid var(--cream-dark); 
     padding: 14px; border-radius: 10px;
     color: var(--green);
 }
 .custom-input::placeholder { color: var(--green); opacity: 0.5; }
-.custom-input:focus { box-shadow: 0 0 0 3px rgba(250, 247, 240, 0.3); border-color: var(--cream); }
+.custom-input:focus { box-shadow: 0 0 0 3px rgba(250, 243, 221, 0.3); border-color: var(--cream); }
 
-/* Tombol Form */
 .btn-light-green {
     background-color: var(--cream); color: var(--green);
     border: none; padding: 12px; border-radius: 10px; font-weight: bold;
 }
 .btn-light-green:hover { background-color: var(--cream-dark); }
 
-/* Ucapan Container */
 .ucapan-container-glass {
     height: 400px; overflow-y: auto;
-    background: rgba(0, 0, 0, 0.2); /* Gelap transparan agar teks cream terbaca */
+    background: rgba(0, 0, 0, 0.2); 
     border-radius: 15px; padding: 20px; color: var(--cream);
-    border: 1px solid rgba(250, 247, 240, 0.1);
+    border: 1px solid rgba(250, 243, 221, 0.1);
 }
-.ucapan-item { background: rgba(250, 247, 240, 0.1); padding: 12px; border-radius: 12px; margin-bottom: 12px; }
+.ucapan-item { background: rgba(250, 243, 221, 0.1); padding: 12px; border-radius: 12px; margin-bottom: 12px; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 10px; }
 
-/* --- PAGE 1 VERTICAL LAYOUT --- */
 
-/* Nama Mempelai Vertikal */
-.mempelai-vertical-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 0;
-}
-
-.nama-vertical {
-    font-family: var(--font-heading);
-    font-size: 6rem; /* Ukuran Besar */
-    font-weight: 600;
-    line-height: 0.9;
-    color: var(--green);
-    margin: 0;
-    font-style: italic;
-    letter-spacing: -2px; /* Rapat biar estetik */
-}
-
-.ampersand-vertical {
-    font-family: var(--font-script);
-    font-size: 3rem;
-    color: var(--gold); /* Aksen Emas */
-    margin: 15px 0; /* Jarak Atas Bawah simbol & */
-    opacity: 0.8;
-}
-
-/* Responsif untuk HP */
-@media (max-width: 576px) {
-    .nama-vertical {
-        font-size: 4.5rem; /* Ukuran pas di HP */
-    }
-    .ampersand-vertical {
-        font-size: 2.5rem;
-        margin: 10px 0;
-    }
-}
-
-/* Animasi Muncul dari Bawah */
-.animate-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease-out;
-}
-
-/* Animasi Zoom In */
-.animate-zoom {
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 1s ease-out;
-}
-
-/* Class pembantu saat elemen aktif (akan dipicu JS atau saat scroll) */
-.appear {
-    opacity: 1 !important;
-    transform: none !important;
-}
-
-.delay-1 { transition-delay: 0.3s; }
-.delay-2 { transition-delay: 0.6s; }
-
-/* --- POSISI TOMBOL MUSIK (LEBIH POJOK) --- */
+/* =========================================
+   5. AUDIO BUTTON & ANIMATIONS
+   ========================================= */
 #audio-container {
-    position: fixed;
-    bottom: 15px;  /* Jarak dari Bawah (Semakin kecil makin mepet bawah) */
-    right: 15px;   /* Jarak dari Kanan (Semakin kecil makin mepet kanan) */
-    z-index: 9999; /* Pastikan selalu di atas elemen lain */
+    position: fixed; bottom: 15px; right: 15px; z-index: 9999;
 }
-
-/* Mempercantik Tombolnya */
 #audio-btn {
-    width: 45px;       /* Ukuran lingkaran */
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    background-color: var(--cream); /* Warna dasar Cream */
-    color: var(--green);            /* Ikon Hijau */
-    border: 2px solid var(--green); /* Garis pinggir Hijau */
-    
+    width: 45px; height: 45px; display: flex; justify-content: center; align-items: center;
+    background-color: var(--cream); color: var(--green); border: 2px solid var(--green);
     transition: all 0.3s ease;
 }
+#audio-btn:hover { transform: scale(1.1); }
 
-#audio-btn:hover {
-    transform: scale(1.1); /* Efek membesar saat disentuh */
-}
+/* Animation Keyframes */
+.animate-up { opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease forwards; }
+.animate-zoom { opacity: 0; transform: scale(0.8); animation: zoomIn 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
 
-/* Definisikan animasinya */
-@keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes zoomIn { to { opacity: 1; transform: scale(1); } }
+.appear { opacity: 1 !important; transform: none !important; }
 
-/* Jalankan animasinya pada class animate-zoom */
-.animate-zoom {
-    animation: zoomIn 1.2s ease-out forwards;
-}
 
-/* --- COUNTDOWN TRANSPARAN --- */
-#countdown {
-    perspective: 1000px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.time-box {
-    background-color: transparent !important; /* Wajib Transparan */
-    border: 1px solid var(--green); /* Garis tepi hijau */
-    
-    width: 75px;
-    height: 85px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    border-radius: 12px;
-    box-shadow: none !important; /* Hilangkan bayangan */
-}
-
-/* Hilangkan garis tengah lipatan kartu versi sebelumnya */
-.time-box::after {
-    display: none; 
-}
-
-.time-number {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--green) !important; /* Paksa warna hijau */
-    line-height: 1;
-}
-
-.time-label {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--green) !important; /* Paksa warna hijau */
-    margin-top: 5px;
-    font-weight: 600;
-}
-
-/* Responsif Countdown untuk layar HP kecil */
-@media (max-width: 576px) {
-    .time-box {
-        width: 65px;
-        height: 75px;
-        border-radius: 8px;
-    }
-    .time-number {
-        font-size: 1.8rem;
-    }
-    .time-label {
-        font-size: 0.55rem;
-        letter-spacing: 1px;
-    }
-    #countdown {
-        gap: 8px !important;
-    }
-}
-
-.btn-buka-undangan {
-    background-color: var(--green); 
-    color: var(--cream);
-    border: 1px solid var(--green);
-    
-    /* Ukuran Lebih Kecil & Ramping */
-    padding: 10px 28px; 
-    border-radius: 50px;
-    
-    /* Typography Elegan */
-    font-family: var(--font-body); 
-    font-size: 0.85rem; 
-    font-weight: 600; 
-    letter-spacing: 2px; /* Jarak antar huruf lebar (ciri khas mewah) */
-    text-transform: uppercase;
-    
-    transition: all 0.4s ease;
-    cursor: pointer;
-}
-
-.btn-buka-undangan:hover { 
-    background-color: transparent; /* Jadi transparan saat hover */
-    color: var(--green); 
-    transform: translateY(-2px); 
-    box-shadow: 0 5px 15px rgba(74, 86, 58, 0.2);
-}
-
-/* Responsif untuk HP Kecil */
-@media (max-width: 576px) {
+/* =========================================
+   6. RESPONSIVE MOBILE TWEAKS (PENTING!)
+   *(Kunci agar proporsional di HP kecil)*
+   ========================================= */
+@media screen and (max-width: 600px) {
+    /* HERO */
+    .inisial-box-final { width: 120px; height: 140px; }
     .inisial-huruf { font-size: 5.5rem; }
-    .bunga-tengah { width: 90px; }
-    .huruf-kiri { transform: translateY(-17px); }
-    .huruf-kanan { transform: translateY(17px); }
+    .huruf-a { transform: translate(17px, 10px) !important; }
+    .huruf-h { transform: translate(-17px, -20px) !important; }
+    .bunga-tulip { width: 65px; transform: translateY(5px); }
+    .hero-bottom-wrapper { padding: 25px 15px 30px 15px; border-top-left-radius: 30px; border-top-right-radius: 30px; }
+    .nama-mempelai-hero { font-size: 1.75rem; margin-bottom: 15px; }
+    .tamu-box-final { padding: 10px; margin-bottom: 20px; }
+    .nama-tamu-final { font-size: 1.1rem; }
+    
+    /* COUNTDOWN & LAINNYA */
+    .time-box { width: 50px; height: 60px; border-radius: 8px; }
+    .time-number { font-size: 1.3rem; }
+    .time-label { font-size: 0.5rem; letter-spacing: 1px; }
+    #countdown { gap: 8px !important; }
+}
+
+@media screen and (max-height: 650px) {
+    .hero-bottom-wrapper { padding-top: 20px; }
+    .nama-mempelai-hero { font-size: 1.6rem; margin-bottom: 10px; }
+    .btn-buka-final { padding: 10px 30px; }
 }
