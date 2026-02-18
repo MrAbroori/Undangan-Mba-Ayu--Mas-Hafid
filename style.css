@@ -374,14 +374,28 @@ body {
     object-position: center;
 }
 
+/* --- REVISI NAMA SEBARIS (KEMBALI ELEGAN) --- */
 .nama-mempelai-sebaris {
-    font-family: var(--font-script);
-    font-size: clamp(2.5rem, 8vw, 4rem); /* Fleksibel di HP & Desktop */
+    font-family: var(--font-heading); /* Kembali menggunakan gaya elegan (Cormorant) */
+    font-size: clamp(3rem, 10vw, 5.5rem); /* Ukuran besar namun tetap aman di HP */
+    font-weight: 600;
+    font-style: italic;
     color: var(--green);
     line-height: 1.2;
     z-index: 2;
     position: relative;
     margin: 0;
+    letter-spacing: -2px; /* Dibuat agak rapat agar estetikanya kembali */
+}
+
+/* Khusus untuk simbol & */
+.dan-simbol-emas {
+    font-family: var(--font-script); /* Menggunakan gaya latin (Great Vibes) */
+    font-size: clamp(2.5rem, 8vw, 4.5rem); /* Sedikit lebih kecil dari nama */
+    color: var(--gold) !important; /* Memaksa warna menjadi emas / #C5A059 */
+    margin: 0 5px;
+    font-weight: normal;
+    font-style: normal;
 }
 
 .quote-text-revisi {
