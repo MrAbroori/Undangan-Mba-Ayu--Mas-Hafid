@@ -151,28 +151,43 @@ function bukaUndangan() {
     const audio = document.getElementById("song");
     const audioContainer = document.getElementById("audio-container");
     
-    // 1. Geser Cover (Hero) ke Atas
+    // 1. Animasi Geser Cover (Hero) ke Atas secara Mulus
     if(hero) {
+        // Tambahkan efek transisi (CSS) langsung dari JS agar mulus & elegan
+        hero.style.transition = "transform 1.2s cubic-bezier(0.7, 0, 0.3, 1), opacity 1.2s ease";
+        
+        // Eksekusi gerakannya (angkat ke atas dan buat transparan)
         hero.style.transform = "translateY(-100vh)"; 
+        hero.style.opacity = "0";
+        
+        // Hapus elemen hero setelah animasi selesai (1.2 detik) agar tidak menutupi klik
+        setTimeout(() => {
+            hero.style.display = "none";
+        }, 1200);
     }
     
-    // 2. Tampilkan Konten Utama (Langsung, tanpa jeda)
+    // 2. Tampilkan Konten Utama
     if(mainContent) {
         mainContent.style.display = "block";
     }
 
-    // 3. Aktifkan Scroll pada Body (PENTING)
+    // 3. Aktifkan Scroll pada Body
     document.body.style.overflow = "auto"; 
     
     // 4. Munculkan Tombol Musik & Putar Lagu
-    if(audioContainer) audioContainer.style.display = "block";
+    if(audioContainer) {
+        audioContainer.style.display = "block";
+        // PENTING: Pastikan ikon kaset langsung berputar saat undangan pertama kali dibuka
+        audioContainer.querySelector("i").classList.add("fa-spin");
+    }
     if(audio) audio.play().catch(e => console.log("Audio autoplay blocked"));
     
-    // 5. Init Animasi AOS
+    // 5. Init Animasi AOS (Munculnya elemen-elemen secara perlahan)
     if (typeof AOS !== 'undefined') {
         AOS.init({ duration: 1000, once: true });
     }
 }
+// Kunci scroll saat halaman pertama kali dimuat (sebelum tombol dibuka)
 document.body.style.overflow = "hidden";
 
 function copyText(id) {
@@ -183,7 +198,6 @@ function copyText(id) {
         });
     }
 }
-
 
 // ============================================================================
 // 5. COUNTDOWN TIMER
