@@ -133,8 +133,13 @@ body {
     box-shadow: 0 -10px 30px rgba(0,0,0,0.1); 
 }
 
+/* =========================================
+   REVISI HERO BAGIAN BAWAH (SAMPUL DEPAN)
+   ========================================= */
+
+/* The Wedding Of - Diubah ke Cream */
 .the-wedding-text {
-    color: var(--gold-accent);
+    color: var(--cream) !important; 
     font-family: var(--font-body), sans-serif;
     font-size: 0.75rem;
     letter-spacing: 3px;
@@ -143,29 +148,59 @@ body {
     text-transform: uppercase;
 }
 
+/* Nama Mempelai Hero - Dibuat Elegan seperti Page 1 */
 .nama-mempelai-hero {
-    color: var(--cream-bg);
     font-family: var(--font-heading), serif;
-    font-size: 2rem; /* Zoom-out (sebelumnya 2.5rem) */
-    margin: 0 0 20px 0;
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Ukuran membesar proporsional */
+    font-weight: 600;
+    font-style: italic;
+    color: var(--cream); /* Teks cream karena background-nya hijau */
     line-height: 1.2;
+    margin: 0 0 25px 0;
+    letter-spacing: -1px;
 }
 
-.dan-simbol { color: var(--gold-accent); }
-
+/* Kotak Tamu - Dihilangkan kotaknya (bebas tanpa bingkai) */
 .tamu-box-final {
     width: 100%;
-    max-width: 300px; /* Ramping minimalis (sebelumnya 350px) */
-    background: rgba(255, 255, 255, 0.05); 
-    border: 1px solid rgba(255, 245, 233, 0.2); 
-    border-radius: 12px;
-    padding: 12px;
-    margin-bottom: 25px;
+    max-width: 300px;
+    background: transparent !important; /* Hilangkan warna latar */
+    border: none !important; /* Hilangkan garis kotak */
+    padding: 0; /* Hilangkan jarak dalam agar merapat */
+    margin-bottom: 30px;
 }
 
-.kepada-text { font-size: 0.8rem; color: var(--cream-bg); opacity: 0.8; margin: 0 0 5px 0; }
+.kepada-text { font-size: 0.8rem; color: var(--cream); opacity: 0.8; margin: 0 0 5px 0; }
 .nama-tamu-final { font-family: var(--font-body), sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin: 5px 0; text-transform: capitalize; letter-spacing: 0.5px; }
-.maaf-text { font-size: 0.6rem; font-style: italic; color: var(--cream-bg); opacity: 0.6; margin: 5px 0 0 0; }
+.maaf-text { font-size: 0.6rem; font-style: italic; color: var(--cream); opacity: 0.6; margin: 5px 0 0 0; }
+
+/* Tombol Buka Undangan - Dibuat Cream agar Pop-Out di atas latar Hijau */
+button.btn-buka-final {
+    background-color: var(--cream) !important; 
+    color: var(--green) !important;
+    border: 1px solid var(--cream) !important;
+    padding: 12px 35px; 
+    border-radius: 50px;
+    font-family: var(--font-body), sans-serif; 
+    font-weight: 700; 
+    letter-spacing: 1px;
+    text-transform: uppercase; 
+    font-size: 0.85rem; 
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15) !important;
+    transition: all 0.3s ease !important;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+/* Efek saat tombol Buka Undangan ditekan */
+button.btn-buka-final:hover {
+    background-color: transparent !important; 
+    color: var(--cream) !important;
+    border: 1px solid var(--cream) !important;
+    transform: translateY(-3px);
+}
 
 /* =========================================
    BAGIAN TOMBOL (FULL REVISI WARNA FIX)
