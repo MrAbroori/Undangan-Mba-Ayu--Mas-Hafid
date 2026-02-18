@@ -151,7 +151,7 @@ body {
 /* Nama Mempelai Hero - Dibuat Elegan seperti Page 1 */
 .nama-mempelai-hero {
     font-family: var(--font-heading), serif;
-    font-size: clamp(2.5rem, 8vw, 4rem); /* Ukuran membesar proporsional */
+    font-size: clamp(4.5rem, 12vw, 8rem); /* Ukuran membesar proporsional */
     font-weight: 600;
     font-style: italic;
     color: var(--cream); /* Teks cream karena background-nya hijau */
