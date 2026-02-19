@@ -1136,11 +1136,89 @@ section#closing img[src*="bunga-08.svg"] {
     margin-bottom: 20px !important;
 }
 
-/* 3. Foto Couple Penutup (Dibuat lebih mungil dari Page 1) */
+/* =========================================
+   REVISI FINAL CLOSING: BAWAH DATAR & FOTO MANTAP
+   ========================================= */
+
+/* 1. BENTUK SECTION (Atas Lengkung, Bawah Datar Lurus) */
+section#closing {
+    /* Membuat lengkungan manis di bagian ATAS */
+    border-top-left-radius: 50px !important;
+    border-top-right-radius: 50px !important;
+
+    /* KUNCI UTAMA: Memastikan bagian BAWAH LURUS DATAR (Siku) */
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+
+    background-color: var(--cream) !important;
+    
+    /* Padding bawah dikurangi drastis agar elemen terasa dekat dengan "tanah" */
+    padding-top: 40px !important;
+    padding-bottom: 10px !important; 
+    
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* Menghilangkan garis pembatas bawaan jika masih ada */
+section#closing .border-top {
+    border: none !important;
+    padding-top: 0 !important;
+}
+
+
+/* 2. PENYESUAIAN BINGKAI FOTO AGAR TERLIHAT "DUDUK MANTAP" */
 section#closing .frame-lingkaran {
-    width: clamp(120px, 35vw, 160px) !important; /* Lebih kecil & manis */
-    height: clamp(170px, 45vw, 230px) !important;
-    margin-bottom: 25px !important;
+    /* Ukuran tetap mungil (sesuai request sebelumnya) */
+    width: clamp(110px, 30vw, 150px) !important;
+    height: clamp(150px, 40vw, 210px) !important;
+    
+    /* Margin bawah dibuat sangat tipis agar bingkai terasa menapak di garis akhir */
+    margin: 0 auto 5px auto !important; 
+    
+    border-radius: 100px !important;
+    border: 3px solid var(--green) !important; /* Garis bingkai dipertegas sedikit */
+    background: rgba(255, 255, 255, 0.4) !important;
+    
+    /* Bayangan difokuskan ke bawah agar terlihat menapak */
+    box-shadow: 0 10px 15px -5px rgba(91, 105, 70, 0.2) !important;
+}
+
+/* 3. PENYESUAIAN GAMBAR DI DALAMNYA */
+section#closing .img-berdua {
+    /* Gambar mengisi penuh ke bawah */
+    height: 96% !important; 
+    /* Trik: menarik gambar sedikit ke bawah agar menempel garis bingkai */
+    margin-bottom: -2px !important; 
+    /* Drop shadow halus di kaki gambar */
+    filter: drop-shadow(0 4px 4px rgba(91, 105, 70, 0.2)) !important;
+}
+
+
+/* --- (Bagian Font di bawah ini tetap KECIL sesuai request sebelumnya) --- */
+
+section#closing h2.font-aesthetic {
+    font-size: 1.5rem !important; margin-bottom: 5px !important;
+}
+section#closing .letter-spacing-small {
+    font-size: 0.6rem !important; margin-bottom: 20px !important; opacity: 0.7 !important;
+}
+section#closing p.fst-italic, section#closing p.fw-bold {
+    font-size: 0.75rem !important; width: 85% !important; max-width: 400px !important;
+    margin-left: auto !important; margin-right: auto !important;
+}
+.nama-mempelai-footer {
+    font-size: clamp(2rem, 6vw, 3rem) !important; margin-bottom: 15px !important;
+}
+.nama-mempelai-footer .dan-simbol-emas {
+     font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+}
+
+/* Menghilangkan padding kosong di HTML (div class="pb-5") agar benar-benar mentok bawah */
+section#closing .pb-5 {
+    padding-bottom: 0 !important;
+    display: none !important;
 }
 
 /* 4. Judul "Terima Kasih" */
