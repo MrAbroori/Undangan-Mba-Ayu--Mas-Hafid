@@ -59,7 +59,6 @@ body {
     .ornamen-pojok-kiri-atas, .ornamen-pojok-kanan-atas { width: 110px; }
 }
 
-
 /* =========================================
    REVISI HERO SECTION (PROPORSI 60:40, INISIAL RAKSASA, ISI RAPAT)
    ========================================= */
@@ -140,10 +139,29 @@ body {
     box-shadow: 0 -10px 30px rgba(0,0,0,0.1); 
 }
 
-/* 5. MERAPATKAN ISI KOTAK HIJAU AGAR LEBIH BERISI */
+/* =========================================
+   REVISI FONT "THE WEDDING OF" (HURUF SAMBUNG ELEGANT)
+   ========================================= */
 .the-wedding-text { 
-    margin: 0 0 5px 0 !important; /* Jarak dirapatkan */
-    font-size: 0.75rem; color: var(--cream); letter-spacing: 3px; font-weight: 600;
+    font-family: var(--font-script) !important; /* Menggunakan font sambung Great Vibes */
+    font-size: 2.5rem !important; /* Diperbesar karena font sambung butuh ukuran lebih besar */
+    color: var(--cream) !important; 
+    font-weight: normal !important; /* Huruf sambung lebih cantik jika tidak terlalu tebal */
+    
+    /* KUNCI: Agar hurufnya benar-benar menyambung natural */
+    letter-spacing: 0 !important; 
+    text-transform: none !important; /* Mematikan efek huruf kapital semua */
+    
+    margin: 0 0 0 0 !important; /* Margin bawah dinolkan agar menempel manis dengan nama mempelai */
+    line-height: 1 !important;
+}
+
+/* Sesuaikan ukuran khusus untuk layar HP */
+@media screen and (max-width: 600px) {
+    .the-wedding-text {
+        font-size: 2rem !important; /* Sedikit dikecilkan di HP agar proporsional */
+        margin: 0 0 -5px 0 !important; /* Ditarik sedikit ke bawah agar dekat dengan nama */
+    }
 }
 
 .nama-mempelai-hero {
