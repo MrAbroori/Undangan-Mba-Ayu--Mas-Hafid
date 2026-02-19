@@ -1136,22 +1136,32 @@ section#closing .letter-spacing-small {
     margin-bottom: 25px !important;
 }
 
-/* 6. Paragraf Formal (Kunci Minimalis: Ramping & Rapi) */
+/* 6. Paragraf Formal (Kunci Minimalis: Ramping & Rapi TANPA di-break) */
 section#closing p.fst-italic {
-    font-size: 0.8rem !important; /* Huruf disusutkan (sebelumnya 1.1rem) */
+    font-size: 0.8rem !important; 
     line-height: 1.6 !important;
-    max-width: 500px !important; /* Dibatasi agar tidak meluber ke tepi HP */
-    margin: 0 auto 20px auto !important;
+    
+    /* KUNCI ELEGAN: Lebar maksimal hanya 85% dari layar HP */
+    width: 85% !important; 
+    max-width: 400px !important; 
+    
+    margin: 0 auto 20px auto !important; /* Otomatis rata tengah */
     font-weight: 300 !important;
 }
 
 /* 7. Kalimat Bahasa Inggris (Hope to see you soon) */
 section#closing p.fw-bold {
     font-size: 0.75rem !important;
-    letter-spacing: 2px !important;
-    margin-bottom: 40px !important;
-    font-weight: 500 !important; /* Dibuat agak tipis biar elegan */
+    letter-spacing: 1.5px !important;
+    
+    /* Disamakan agar ramping ke tengah */
+    width: 85% !important; 
+    max-width: 400px !important; 
+    
+    margin: 0 auto 40px auto !important;
+    font-weight: 500 !important; 
     opacity: 0.8 !important;
+    line-height: 1.5 !important;
 }
 
 /* 8. Nama Mempelai Paling Bawah (Proporsional) */
