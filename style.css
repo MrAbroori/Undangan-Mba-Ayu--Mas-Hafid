@@ -272,12 +272,14 @@ button.btn-buka-final:hover {
    REVISI TOTAL FOTO PAGE 1 (KHUSUS GAMBAR TRANSPARAN)
    agar lebih cantik, timbul, dan tidak nabrak pinggir.
    ========================================= */
-
-/* 1. BINGKAI (The Frame) */
+/* 1. BINGKAI FOTO (Ukuran Diperbesar Sedikit) */
 .frame-lingkaran {
-    /* Ukuran Bingkai Oval (Tetap sama seperti sebelumnya) */
-    width: clamp(140px, 35vw, 180px);
-    height: clamp(200px, 50vw, 260px);
+    /* Lebar dinaikkan (min 160px, ideal 45vw, max 220px) */
+    width: clamp(160px, 45vw, 220px);
+    
+    /* Tinggi dinaikkan proporsional (min 230px, ideal 60vw, max 310px) */
+    height: clamp(230px, 60vw, 310px);
+    
     border-radius: 150px;
     border: 3px solid var(--green);
     margin: 0 auto 20px auto;
@@ -285,21 +287,12 @@ button.btn-buka-final:hover {
     z-index: 2;
     overflow: hidden;
 
-    /* --- PERUBAHAN BARU UNTUK ESTETIKA --- */
-    
-    /* Mengatur posisi gambar di dalam agar di tengah-bawah */
     display: flex;
     align-items: flex-end; 
     justify-content: center;
-
-    /* Memberi background samar terang di dalam bingkai agar gambar lebih 'keluar' */
     background: rgba(255, 255, 255, 0.4);
-
-    /* KOMBINASI BAYANGAN:
-       1. inset: Bayangan ke dalam, memberi kesan kedalaman (seperti ceruk)
-       2. Bayangan luar: Memberi kesan bingkai melayang */
-    box-shadow: inset 0 -10px 20px rgba(91, 105, 70, 0.1), /* Inner shadow halus di bawah */
-                0 10px 25px rgba(91, 105, 70, 0.15); /* Outer shadow */
+    box-shadow: inset 0 -10px 20px rgba(91, 105, 70, 0.1), 
+                0 10px 25px rgba(91, 105, 70, 0.15);
 }
 
 /* 2. GAMBAR PENGANTIN (The Image) */
