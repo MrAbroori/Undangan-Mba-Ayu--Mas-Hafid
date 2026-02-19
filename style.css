@@ -148,50 +148,79 @@ body {
     text-transform: uppercase;
 }
 
-/* Nama Mempelai Hero - Dibuat Elegan seperti Page 1 */
+/* Nama Mempelai Hero - Diperbesar drastis agar penuh */
 .nama-mempelai-hero {
     font-family: var(--font-heading), serif;
-    font-size: clamp(4.5rem, 12vw, 8rem); /* Ukuran membesar proporsional */
+    font-size: clamp(5.5rem, 15vw, 9rem); /* Ukuran jauh lebih besar */
     font-weight: 600;
     font-style: italic;
-    color: var(--cream); /* Teks cream karena background-nya hijau */
-    line-height: 1.2;
-    margin: 0 0 25px 0;
+    color: var(--cream); 
+    line-height: 1.1;
+    margin: 0 0 15px 0; /* Jarak dirapatkan untuk memberi ruang pada garis */
     letter-spacing: -1px;
+}
+
+/* Garis Pembatas Putus-putus (BARU) */
+.divider-dashed {
+    border: 0;
+    border-top: 1px dashed var(--cream);
+    opacity: 0.5;
+    width: 60%;
+    max-width: 250px;
+    margin: 0 auto 20px auto;
 }
 
 /* Kotak Tamu - Dihilangkan kotaknya (bebas tanpa bingkai) */
 .tamu-box-final {
     width: 100%;
     max-width: 300px;
-    background: transparent !important; /* Hilangkan warna latar */
-    border: none !important; /* Hilangkan garis kotak */
-    padding: 0; /* Hilangkan jarak dalam agar merapat */
-    margin-bottom: 30px;
+    background: transparent !important; 
+    border: none !important; 
+    padding: 0; 
+    margin: 0 auto 25px auto; /* Rata tengah dan jarak bawah dirapatkan */
 }
 
 .kepada-text { font-size: 0.8rem; color: var(--cream); opacity: 0.8; margin: 0 0 5px 0; }
-.nama-tamu-final { font-family: var(--font-body), sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin: 5px 0; text-transform: capitalize; letter-spacing: 0.5px; }
+
+/* Nama Tamu - Warna diubah ke var(--cream) */
+.nama-tamu-final { 
+    font-family: var(--font-body), sans-serif; 
+    font-size: 1.2rem; 
+    font-weight: 700; 
+    color: var(--cream); /* Menggunakan variabel cream */
+    margin: 5px 0; 
+    text-transform: capitalize; 
+    letter-spacing: 0.5px; 
+}
+
 .maaf-text { font-size: 0.6rem; font-style: italic; color: var(--cream); opacity: 0.6; margin: 5px 0 0 0; }
 
-/* Tombol Buka Undangan - Dibuat Cream agar Pop-Out di atas latar Hijau */
+/* Tombol Buka Undangan - Diperkecil agar Mungil & Minimalis */
 button.btn-buka-final {
     background-color: var(--cream) !important; 
     color: var(--green) !important;
     border: 1px solid var(--cream) !important;
-    padding: 12px 35px; 
+    padding: 8px 25px; /* Padding dipangkas agar pipih */
     border-radius: 50px;
     font-family: var(--font-body), sans-serif; 
     font-weight: 700; 
-    letter-spacing: 1px;
+    letter-spacing: 2px; /* Spasi huruf dilebarkan */
     text-transform: uppercase; 
-    font-size: 0.85rem; 
+    font-size: 0.75rem; /* Ukuran huruf dikecilkan */
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0,0,0,0.15) !important;
     transition: all 0.3s ease !important;
     display: flex; 
     align-items: center; 
     justify-content: center;
+    margin: 0 auto;
+    width: auto;
+    min-width: 180px; /* Batas minimal lebar tombol */
+}
+
+/* Ikon amplop di dalam tombol disesuaikan */
+button.btn-buka-final i {
+    font-size: 0.8rem; 
 }
 
 /* Efek saat tombol Buka Undangan ditekan */
@@ -554,7 +583,6 @@ button.btn-buka-final:hover {
     /* Menghapus aturan pemotongan teks sebelumnya */
     display: block !important;
     overflow: visible !important;
-    -webkit-line-clamp: unset !important; 
 }
 
 /* 4. LOGO BANK/SHOPEEPAY (Diperbesar) */
