@@ -1253,22 +1253,16 @@ section#closing p.fw-bold {
 }
 
 /* ========================================
-   AMPERSAND FULL GREEN BOX
+   AMPERSAND FULL GREEN STRIP
 ======================================== */
 
-.ampersand-box {
+.ampersand-huge {
     background-color: var(--green);
-    padding: 25px 0;
+    color: var(--cream);
+    padding: 10px 0;          /* tidak terlalu tinggi */
+    margin: 0;
     text-align: center;
-    border-top: 3px solid var(--green-dark);
-    border-bottom: 3px solid var(--green-dark);
-    border-radius: 8px;
-}
-
-.ampersand-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--cream); /* agar kontras */
+    border-top: 2px solid var(--green-dark);
+    border-bottom: 2px solid var(--green-dark);
     letter-spacing: 6px;
 }
