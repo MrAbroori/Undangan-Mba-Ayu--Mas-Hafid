@@ -1252,14 +1252,10 @@ section#closing p.fw-bold {
     }
 }
 
-/* ========================================
-   AMPERSAND FULL GREEN STRIP
-======================================== */
-
 .ampersand-huge {
     background-color: var(--green);
     color: var(--cream);
-    padding: 10px 0;          /* tidak terlalu tinggi */
+    padding: 6px 0;          /* tidak terlalu tinggi */
     margin: 0;
     text-align: center;
     border-top: 2px solid var(--green-dark);
