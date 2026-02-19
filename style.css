@@ -1394,31 +1394,39 @@ section#closing img[src*="bunga-08.svg"] {
     opacity: 0.8 !important;
 }
 
-/* 3. BINGKAI FOTO (POSISI DUDUK MANTAP) */
+/* 3. BINGKAI FOTO (POSISI DUDUK MANTAP & DIPERBESAR) */
 section#closing .frame-lingkaran {
-    /* Ukuran Mungil & Rapi */
-    width: clamp(110px, 30vw, 150px) !important;
-    height: clamp(150px, 40vw, 210px) !important;
+    /* --- UKURAN DIPERBESAR JAUH LEBIH MANTAP --- */
+    /* Lebar: Minimal 200px, Ideal 60% layar HP, Maksimal 300px di Desktop */
+    width: clamp(200px, 60vw, 300px) !important;
     
-    /* Margin bawah 0 agar menempel garis */
-    margin: 0 auto 0 auto !important; 
+    /* Tinggi: Menyesuaikan proporsi agar terlihat tinggi dan gagah */
+    height: clamp(250px, 75vw, 400px) !important;
+
+    /* Margin bawah 0 agar tetap menempel garis dasar */
+    margin: 20px auto 0 auto !important; /* Ditambah sedikit margin atas biar ada jarak dari teks */
+
+    /* Kelengkungan atas diperbesar menyesuaikan ukuran baru, bawah tetap datar (0) */
+    /* Ini membuat bentuk kubah yang lebih besar */
+    border-radius: 180px 180px 0 0 !important; 
     
-    border-radius: 100px 100px 0 0 !important; /* Bagian bawah datar mengikuti section */
-    /* Jika ingin bulat utuh, hapus baris atas dan pakai: border-radius: 100px !important; */
-    
-    border: 3px solid var(--green) !important;
+    border: 4px solid var(--green) !important; /* Garis bingkai dipertebal sedikit biar makin mantap */
     background: rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 0 -5px 20px rgba(91, 105, 70, 0.1) !important;
+    box-shadow: 0 -5px 25px rgba(91, 105, 70, 0.15) !important; /* Bayangan lebih terasa */
     
     position: relative;
     bottom: -5px; /* Dorong sedikit ke bawah agar gap tertutup rapat */
 }
 
-/* 4. GAMBAR PENGANTIN */
+/* 4. GAMBAR PENGANTIN (Diturunkan agar tidak mentok atas) */
 section#closing .img-berdua {
-    height: 98% !important; 
-    margin-bottom: -1px !important; 
-    filter: drop-shadow(0 4px 4px rgba(91, 105, 70, 0.2)) !important;
+    /* Kurangi tingginya dari 98% menjadi 88% agar ada ruang kosong di atas kepala */
+    height: 88% !important; 
+    
+    /* Memastikan gambar tetap ditarik mentok ke bawah bingkai */
+    margin-bottom: -2px !important; 
+    
+    filter: drop-shadow(0 4px 6px rgba(91, 105, 70, 0.2)) !important;
 }
 
 /* 5. TEKS & FONT (DISERAGAMKAN DENGAN PAGE 1) */
