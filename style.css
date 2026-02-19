@@ -990,3 +990,111 @@ section#gift {
     padding-top: 10px !important; 
     padding-bottom: 0 !important;
 }
+
+/* =========================================
+   REVISI PAGE RSVP & UCAPAN (MINIMALIS & ELEGAN)
+   ========================================= */
+
+/* 1. Spasi Section Atas-Bawah */
+section#rsvp {
+    padding: 60px 0 !important;
+}
+
+/* 2. Judul Section (Lebih Mungil & Berjarak) */
+#rsvp h2.font-aesthetic,
+#rsvp .display-4 {
+    font-size: 2rem !important; 
+    letter-spacing: 1px !important;
+    margin-bottom: 25px !important;
+}
+
+/* 3. Container Form RSVP (Dibatasi Lebarnya agar Ramping) */
+.glass-form {
+    max-width: 420px !important; /* Mengunci lebar agar tidak raksasa */
+    margin: 0 auto 40px auto !important; /* Rata tengah */
+    padding: 25px 20px !important; /* Padding disesuaikan */
+    border-radius: 16px !important;
+    background: rgba(250, 243, 221, 0.08) !important; /* Lebih soft */
+    border: 1px solid rgba(250, 243, 221, 0.15) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+}
+
+/* 4. Kotak Isian / Input Form (Tipis & Clean) */
+.custom-input {
+    font-size: 0.8rem !important; /* Teks input dikecilkan */
+    padding: 10px 15px !important; /* Ketinggian form dikurangi */
+    border-radius: 8px !important;
+    background: rgba(250, 243, 221, 0.95) !important;
+    border: 1px solid rgba(91, 105, 70, 0.2) !important;
+    color: var(--green) !important;
+    margin-bottom: 12px !important;
+    box-shadow: none !important;
+}
+
+/* Efek saat form diklik/diisi */
+.custom-input:focus {
+    background: var(--cream) !important;
+    border-color: var(--green) !important;
+    box-shadow: 0 0 0 2px rgba(250, 243, 221, 0.3) !important;
+}
+
+/* 5. Tombol Kirim Form */
+#rsvpForm button[type="submit"] {
+    padding: 10px !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    margin-top: 10px !important;
+}
+
+/* 6. Container Daftar Ucapan (Lebih Proporsional) */
+.ucapan-container-glass {
+    max-width: 500px !important; /* Lebar dibatasi */
+    margin: 0 auto !important;
+    height: 350px !important; /* Tinggi sedikit dipangkas */
+    background: rgba(0, 0, 0, 0.15) !important; 
+    border: 1px solid rgba(250, 243, 221, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+}
+
+/* 7. Item Ucapan / Komentar (Gaya Minimalis Tanpa Kotak Tebal) */
+.ucapan-item {
+    background: transparent !important; /* Hilangkan background kotak */
+    border: none !important;
+    border-bottom: 1px solid rgba(250, 243, 221, 0.15) !important; /* Hanya garis bawah tipis */
+    border-radius: 0 !important;
+    padding: 12px 5px !important;
+    margin-bottom: 5px !important;
+}
+
+/* Hilangkan garis di ucapan paling bawah */
+.ucapan-item:last-child {
+    border-bottom: none !important;
+}
+
+/* Nama Pengirim Ucapan */
+.ucapan-item .fw-bold {
+    font-size: 0.85rem !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Label Kehadiran (Badge Hadir/Tidak Hadir) */
+.ucapan-item .badge {
+    font-size: 0.55rem !important;
+    padding: 4px 6px !important;
+    letter-spacing: 0.5px !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    opacity: 0.9 !important;
+}
+
+/* Teks Isi Doa & Ucapan */
+.ucapan-item p {
+    font-size: 0.75rem !important;
+    line-height: 1.5 !important;
+    opacity: 0.85 !important;
+    margin-top: 6px !important;
+}
