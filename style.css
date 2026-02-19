@@ -329,12 +329,6 @@ button.btn-buka-final:hover {
     width: auto; /* Biarkan lebar menyesuaikan tinggi secara proporsional */
     height: 92%; /* TINGGI DIKURANGI (tidak 100%) agar ada jarak di atas */
     max-width: 95%; /* Penjaga agar tidak terlalu melebar jika di layar tertentu */
-    
-    /* HAPUS 'object-fit: cover' karena kita tidak ingin dia memenuhi bingkai lagi */
-    /* object-fit: cover; <-- INI DIHAPUS */
-
-    /* --- PERUBAHAN ESTETIKA BARU --- */
-    
     /* Memberi bayangan pada PNG transparan agar terlihat TIMBUL (pop-out) */
     filter: drop-shadow(0 5px 8px rgba(91, 105, 70, 0.25));
 
