@@ -164,8 +164,8 @@ body {
 .divider-solid {
     border: 0;
     border-top: 1px solid var(--cream); /* Mengubah 'dashed' menjadi 'solid' */
-    opacity: 0.5; /* Mengatur ketipisan garis agar tetap elegan */
-    width: 60%;
+    opacity: 0.8; /* Mengatur ketipisan garis agar tetap elegan */
+    width: 40%;
     max-width: 250px;
     margin: 0 auto 20px auto;
 }
@@ -1200,4 +1200,45 @@ section#closing p.fw-bold {
 
 .nama-mempelai-footer .dan-simbol-emas {
     font-size: clamp(2rem, 7vw, 3rem) !important;
+}
+
+/* =========================================
+   REVISI JARAK INISIAL A & H (ANTI-DEMPET)
+   ========================================= */
+
+/* 1. Jarak Lebar untuk Desktop/Layar Besar */
+.huruf-a { 
+    top: 0; left: 0; 
+    transform: translate(-30px, -20px) !important; /* Ditarik menjauh ke kiri atas */
+}
+.huruf-h { 
+    bottom: 0; right: 0; 
+    transform: translate(30px, 20px) !important; /* Ditarik menjauh ke kanan bawah */
+}
+
+/* 2. Jarak Presisi untuk Layar HP (Mobile) */
+@media screen and (max-width: 600px) {
+    /* Lebarkan sedikit kotaknya agar punya ruang */
+    .inisial-box-final { 
+        width: 150px !important; 
+        height: 160px !important; 
+    }
+    
+    .inisial-huruf { 
+        font-size: 5.5rem !important; 
+    }
+    
+    /* KUNCI: Menarik huruf ke arah luar, bukan ke dalam */
+    .huruf-a { 
+        transform: translate(-10px, -10px) !important; /* Tarik ke kiri atas */
+    }
+    .huruf-h { 
+        transform: translate(10px, 15px) !important; /* Tarik ke kanan bawah */
+    }
+    
+    /* Menyesuaikan posisi bunga di tengah */
+    .bunga-tulip { 
+        width: 65px !important; 
+        transform: translateY(5px) !important; 
+    }
 }
