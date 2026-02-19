@@ -48,11 +48,11 @@ body {
 .letter-spacing-small { letter-spacing: 3px; font-size: 0.75rem; }
 
 /* --- ORNAMENTS --- */
-.ornamen-pojok-kiri-atas { position: absolute; top: 0; left: 0; width: 160px; opacity: 0.8; z-index: 0; }
-.ornamen-pojok-kanan-atas { position: absolute; top: 0; right: 0; width: 160px; transform: scaleX(-1); opacity: 0.8; z-index: 0; }
+.ornamen-pojok-kiri-atas { position: absolute; top: 0; left: 0; width: 160px; opacity: 0.6; z-index: 0; }
+.ornamen-pojok-kanan-atas { position: absolute; top: 0; right: 0; width: 160px; transform: scaleX(-1); opacity: 0.6; z-index: 0; }
 .ornamen-sisi-kiri { position: absolute; top: 50%; left: -60px; width: 140px; transform: translateY(-50%); opacity: 0.5; z-index: 0; }
 .ornamen-sisi-kanan { position: absolute; top: 50%; right: -60px; width: 140px; transform: translateY(-50%); opacity: 0.5; z-index: 0; }
-.ornamen-pojok-kiri-bawah { position: absolute; bottom: 0; left: 0; width: 130px; z-index: 0; }
+.ornamen-pojok-kiri-bawah { position: absolute; bottom: 0; left: 0; width: 130px; z-index: 0; opacity: 0.6;}
 .ornamen-pojok-kanan-bawah {
     position: absolute;
     right: 0;
@@ -71,7 +71,7 @@ body {
 @media screen and (max-width: 600px) {
     .ornamen-pojok-kanan-bawah {
         /* Di HP, posisikan tepat di samping kanan kartu Bride */
-        top: 5% !important; 
+        top: 20% !important; 
         width: 100px !important; /* Ukuran disesuaikan agar manis */
         opacity: 0.5 !important;
     }
