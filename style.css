@@ -1295,6 +1295,9 @@ section#rsvp {
     background-color: var(--green); /* Background Hijau Full */
     padding: 30px 0;            /* Tinggi Banner */
     
+    margin-top: -40px;
+    margin-bottom: 40px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1347,7 +1350,9 @@ section#rsvp {
 /* 5. Responsif untuk HP (Mobile) */
 @media screen and (max-width: 600px) {
     .wedding-separator-banner {
-        padding: 20px 0;
+        padding: 20px 0 !important;
+        margin-top: -30px;
+        margin-bottom: 30px;
         gap: 10px;
     }
     
