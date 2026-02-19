@@ -196,7 +196,7 @@ body {
     font-style: italic;
     color: var(--cream); 
     line-height: 1 !important;
-    margin: 2px 0 5px 0 !important; /* Memberi jarak ke garis */
+    margin: 0 0 5px 0 !important; /* Memberi jarak ke garis */
 }
 
 /* 4. GARIS PEMBATAS (DIVIDER) */
@@ -205,7 +205,7 @@ body {
     border-top: 1px solid var(--cream); 
     opacity: 0.6; 
     width: 60px !important; /* Garis dibuat pendek elegan */
-    margin: 0 auto 5px auto !important; /* Jarak ke Nama Tamu */
+    margin: 0 auto auto auto !important; /* Jarak ke Nama Tamu */
 }
 
 /* 5. KOTAK TAMU (KEPADA YTH) */
@@ -235,7 +235,7 @@ body {
     font-style: italic !important;
     color: var(--cream) !important; 
     opacity: 0.6 !important; /* Dibuat agak pudar agar tidak mencolok */
-    margin: 2px 0 0 0 !important; /* Sedikit jarak dari nama tamu di atasnya */
+    margin: 0 0 0 0 !important; /* Sedikit jarak dari nama tamu di atasnya */
     letter-spacing: 0.5px !important;
 }
 
