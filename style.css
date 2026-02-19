@@ -122,8 +122,11 @@ body {
 .hero-bottom-wrapper {
     background-color: var(--green-dark); 
     width: 100%;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    
+    /* KUNCI: Mengubah lengkungan menjadi 0 agar lurus/datar/siku */
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    
     padding: 35px 20px 40px 20px; 
     display: flex;
     flex-direction: column;
@@ -132,7 +135,6 @@ body {
     z-index: 10;
     box-shadow: 0 -10px 30px rgba(0,0,0,0.1); 
 }
-
 /* =========================================
    REVISI HERO BAGIAN BAWAH (SAMPUL DEPAN)
    ========================================= */
@@ -684,7 +686,7 @@ button.btn-buka-final:hover {
     .huruf-a { transform: translate(17px, 10px) !important; }
     .huruf-h { transform: translate(-17px, -20px) !important; }
     .bunga-tulip { width: 65px; transform: translateY(5px); }
-    .hero-bottom-wrapper { padding: 25px 15px 30px 15px; border-top-left-radius: 30px; border-top-right-radius: 30px; }
+    .hero-bottom-wrapper { padding: 25px 15px 30px 15px; border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; }
     .nama-mempelai-hero { font-size: 1.75rem; margin-bottom: 15px; }
     .tamu-box-final { padding: 10px; margin-bottom: 20px; }
     .nama-tamu-final { font-size: 1.1rem; }
