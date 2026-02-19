@@ -1362,7 +1362,7 @@ section#page-1 {
 }
 
 /* =========================================
-   FIX FINAL: PAGE CLOSING (SATU SUMBER)
+   FIX FINAL: CLOSING (BUNGA UKURAN ASLI & FOTO MANTAP)
    ========================================= */
 
 /* 1. SETUP UTAMA SECTION (Bawah Datar, Atas Lengkung) */
@@ -1371,113 +1371,61 @@ section#closing {
     border-top-left-radius: 50px !important;
     border-top-right-radius: 50px !important;
 
-    /* BAGIAN BAWAH LURUS DATAR (SIKU) - UPDATE PENTING */
+    /* BAGIAN BAWAH LURUS DATAR (SIKU) */
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
 
     background-color: var(--cream) !important;
     
-    /* Padding diatur agar foto menempel ke bawah */
+    /* Padding diatur agar pas */
     padding-top: 50px !important;
-    padding-bottom: 0px !important; /* Nol-kan padding bawah */
+    padding-bottom: 0px !important; /* Mentok bawah */
     
     position: relative;
     z-index: 10;
     overflow: hidden;
-    
-    /* Matikan border bawaan jika ada */
     border: none !important;
 }
 
-/* 2. PENYESUAIAN BINGKAI FOTO (DUDUK MANTAP) */
+/* 2. REVISI BUNGA (UKURAN TETAP / NORMAL) */
+section#closing img[src*="bunga-08.svg"] {
+    width: 60px !important; /* KEMBALI KE UKURAN NORMAL (Tidak dikecilkan) */
+    margin-bottom: 15px !important;
+    opacity: 0.8 !important;
+}
+
+/* 3. BINGKAI FOTO (POSISI DUDUK MANTAP) */
 section#closing .frame-lingkaran {
-    /* Ukuran Mungil */
+    /* Ukuran Mungil & Rapi */
     width: clamp(110px, 30vw, 150px) !important;
     height: clamp(150px, 40vw, 210px) !important;
     
-    /* Margin bawah dibuat 0 atau minus agar nempel garis */
+    /* Margin bawah 0 agar menempel garis */
     margin: 0 auto 0 auto !important; 
     
-    border-radius: 100px 100px 0 0 !important; /* Opsional: bawah bingkai ikut datar */
-    /* Jika ingin bingkai tetap bulat utuh, hapus baris border-radius di atas dan ganti: border-radius: 100px !important; */
-    border-radius: 100px !important;
-
+    border-radius: 100px 100px 0 0 !important; /* Bagian bawah datar mengikuti section */
+    /* Jika ingin bulat utuh, hapus baris atas dan pakai: border-radius: 100px !important; */
+    
     border: 3px solid var(--green) !important;
     background: rgba(255, 255, 255, 0.4) !important;
-    
-    /* Bayangan ke bawah */
     box-shadow: 0 -5px 20px rgba(91, 105, 70, 0.1) !important;
     
     position: relative;
-    bottom: -5px; /* Dorong sedikit ke bawah agar menutupi gap */
+    bottom: -5px; /* Dorong sedikit ke bawah agar gap tertutup rapat */
 }
 
-/* 3. GAMBAR PENGANTIN */
+/* 4. GAMBAR PENGANTIN */
 section#closing .img-berdua {
-    height: 98% !important; /* Gambar diperbesar mengisi bingkai */
+    height: 98% !important; 
     margin-bottom: -1px !important; 
     filter: drop-shadow(0 4px 4px rgba(91, 105, 70, 0.2)) !important;
 }
 
-/* 4. FONTS & TEKS (VERSI KECIL / ZOOM-OUT) */
+/* 5. TEKS & FONT (TETAP KECIL / ZOOM-OUT) */
 section#closing h2.font-aesthetic {
     font-size: 1.5rem !important; 
     margin-bottom: 5px !important;
     color: var(--green) !important;
 }
 
-section#closing img[src*="bunga-08.svg"] {
-    width: 30px !important; /* Bunga kecil */
-    margin-bottom: 10px !important;
-}
-
-section#closing .letter-spacing-small {
-    font-size: 0.6rem !important; 
-    margin-bottom: 20px !important; 
-    opacity: 0.7 !important;
-}
-
-section#closing p.fst-italic {
-    font-size: 0.75rem !important; 
-    width: 85% !important; 
-    max-width: 400px !important;
-    margin: 0 auto 15px auto !important;
-    font-weight: 300 !important;
-    line-height: 1.5 !important;
-}
-
-section#closing p.fw-bold {
-    font-size: 0.7rem !important; 
-    width: 85% !important; 
-    max-width: 400px !important;
-    margin: 0 auto 30px auto !important; /* Jarak ke nama */
-    opacity: 0.7 !important;
-    font-weight: 500 !important;
-}
-
-/* 5. NAMA MEMPELAI BAWAH */
-.nama-mempelai-footer {
-    font-family: var(--font-heading) !important;
-    font-size: clamp(2rem, 6vw, 3rem) !important; 
-    margin-bottom: 20px !important;
-    line-height: 1 !important;
-}
-
-.nama-mempelai-footer .dan-simbol-emas {
-     font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
-}
-
-/* 6. HILANGKAN ELEMENT PENGGANGGU DI HTML */
-/* Ini penting! Kode ini menyembunyikan div kosong di bawah foto */
-section#closing .pb-5, 
-section#closing .pt-4 {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
-    margin-bottom: 0 !important;
-    display: block !important; /* Pastikan container tetap ada tapi paddingnya hilang */
-}
-
-/* Reset border top hijau tipis bawaan */
-section#closing .border-top {
-    border-top: none !important;
-}
+section#closing .letter-spacing-small
