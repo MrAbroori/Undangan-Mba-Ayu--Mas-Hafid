@@ -160,11 +160,11 @@ body {
     letter-spacing: -1px;
 }
 
-/* Garis Pembatas Putus-putus (BARU) */
-.divider-dashed {
+/* Garis Pembatas Lurus (Solid) */
+.divider-solid {
     border: 0;
-    border-top: 1px dashed var(--cream);
-    opacity: 0.5;
+    border-top: 1px solid var(--cream); /* Mengubah 'dashed' menjadi 'solid' */
+    opacity: 0.5; /* Mengatur ketipisan garis agar tetap elegan */
     width: 60%;
     max-width: 250px;
     margin: 0 auto 20px auto;
