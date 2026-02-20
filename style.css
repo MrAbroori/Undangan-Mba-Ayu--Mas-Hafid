@@ -1706,8 +1706,8 @@ section#closing .img-berdua {
    ========================================= */
 
 .icon-ending {
-    width: 280px !important; 
-    height: 70px !important; 
+    width: 360px !important; 
+    height: 90px !important; 
     
     background-color: var(--green) !important; 
     
@@ -1728,7 +1728,7 @@ section#closing .img-berdua {
 @media screen and (max-width: 600px) {
     .icon-ending {
         width: 3000px !important; /* Sekarang ukuran ini tidak akan ditimpa lagi */
-        height: 70px !important;
+        height: 75px !important;
     }
 }
 
