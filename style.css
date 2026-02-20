@@ -1706,8 +1706,8 @@ section#closing .img-berdua {
    ========================================= */
 
 .icon-ending {
-    width: 360px !important; 
-    height: 90px !important; 
+    width: 500px !important; 
+    height: 120px !important; 
     
     background-color: var(--green) !important; 
     
@@ -1727,8 +1727,9 @@ section#closing .img-berdua {
 /* Penyesuaian khusus layar HP */
 @media screen and (max-width: 600px) {
     .icon-ending {
-        width: 3000px !important; /* Sekarang ukuran ini tidak akan ditimpa lagi */
-        height: 75px !important;
+        width: 50vw !important; /* Sekarang ukuran ini tidak akan ditimpa lagi */
+        height: auto !important;
+        max-width: 400px;
     }
 }
 
