@@ -1697,7 +1697,7 @@ section#closing .img-berdua {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px !important; /* Jarak dari teks / foto di atasnya */
+    margin-top: 25px !important; /* Jarak dari teks / foto di atasnya */
     margin-bottom: 25px !important; /* Jarak menuju teks Music By */
 }
 
