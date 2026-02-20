@@ -1687,30 +1687,33 @@ section#closing .img-berdua {
     pointer-events: none;    /* Agar tidak menghalangi klik */
 }
 
-/* =========================================
-   REVISI FINAL CLOSING: ORNAMEN & CREDIT TITLE
-   ========================================= */
-
-/* 1. WADAH ORNAMEN ENDING */
-.ornamen-ending-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-/* 2. TRIK MEWARNAI SVG MENJADI HIJAU */
 .icon-ending {
-    width: 120px; 
-    height: 40px; 
+    /* 1. KITA PERBESAR WADAHNYA AGAR GAMBAR TIDAK MENGECIL */
+    width: 200px !important; 
+    height: 80px !important; 
     
-    /* KUNCI: Warna Hijau agar menonjol di atas background Cream */
+    /* Warna Hijau */
     background-color: var(--green) !important; 
     
-    /* Mengambil bentuk siluet dari file SVG */
-    -webkit-mask: url('assets/ending.svg') no-repeat center / contain;
-    mask: url('assets/ending.svg') no-repeat center / contain;
+    /* 2. KITA PISAHKAN PERINTAHNYA SATU PER SATU AGAR TIDAK BERULANG (DOUBLE) */
+    -webkit-mask-image: url('assets/ending.svg') !important;
+    -webkit-mask-size: contain !important;
+    -webkit-mask-repeat: no-repeat !important; /* Memaksa agar hanya muncul 1 kali */
+    -webkit-mask-position: center !important;
+    
+    mask-image: url('assets/ending.svg') !important;
+    mask-size: contain !important;
+    mask-repeat: no-repeat !important; /* Memaksa agar hanya muncul 1 kali */
+    mask-position: center !important;
+}
+
+/* KHUSUS HP (MOBILE) */
+@media screen and (max-width: 600px) {
+    .icon-ending {
+        /* Ukuran di HP juga disesuaikan agar tetap terlihat jelas */
+        width: 150px !important; 
+        height: 60px !important;
+    }
 }
 
 /* 3. FOOTER CREDIT (MUSIC & CREATOR) */
